@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="../assets/bootstrap-3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/public.css">
+    <script src="../assets/jQuery/jquery.min.js"></script>
+    <script src="../assets/bootstrap-3.3.7/js/bootstrap.min.js"></script>
+    <style>
+        body{
+            min-width: 1200px;
+            min-height: 700px;
+        }
+        .place{
+            margin-top: 20px;
+            margin-left: 10px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+<div class="bg">
+    <div class="content">
+        <p class="place">北京-东城区 奥迪中汽店</p>
+        <div id="activity" style="width: 100%;height: 300px;"></div>
+        <div id="release" style="width: 100%;height: 300px;"></div>
+    </div>
+    <div class="footer">
+        <p>Copyright 2015-2030 huishu All Rights Reserved. </p>
+        <p>慧数汽车   版权所有</p>
+    </div>
+</div>
+
+
+<script src="../assets/echarts/echarts-all-3.js"></script>
+<script src="../assets/echarts/china.js"></script>
+<script type="text/javascript">
+    //活动量
+    var activity = echarts.init(document.getElementById('activity'));
+    var option = {
+        title: {
+            text: '活动量统计',
+            textStyle: {
+                fontSize:12,
+                color:'#8E8E8E'
+            },
+            left: '2%',
+            top: '5%',
+        },
+
+        tooltip : {
+            trigger: 'axis',
+            axisPointer : {            // 坐标轴指示器，坐标轴触发有效
+                type : 'shadow'        // 默认为直线，可选为：'line' | 'shadow'
+            }
+        },
+        color: [
+            '#34EAB5', '#3CA1FD', '#00E1E7'
+        ],
+        legend: {
+            data:['车友活动','新车到店','促销活动'],
+            right:'4%',
+
+        },
+        grid: {
+            left: '3%',
+            right: '4%',
+            bottom: '3%',
+            containLabel: true
+        },
+        xAxis : [
+            {
+                type : 'category',
+                axisTick: {
+                    show: false,
+                    // color:'#fff',
+                },
+                axisLine: {
+                    show: false,
+
+                },
+                axisLabel:{
+                    textStyle:{
+                        color: '#ccc',
+                        fontSize:'12',
+                    },
+                    interval:0,
+                },
+                data : ['1','2','3','4','5','6','7','8','9','10','11']
+            }
+        ],
+        yAxis : [
+            {
+            type : 'value',
+            axisTick: {
+                show: false,
+            },
+            axisLine: {
+                show: false,
+            },
+            axisLabel:{
+                textStyle:{
+                    color: '#ccc',
+                    fontSize:'12',
+                },
+                interval:0,
+            },
+            splitLine: {
+                show:true,
+                lineStyle: {
+                    color: ['#ccc'],
+                    width: 1,
+                    type: 'dotted'
+                }
+            }
+            }
+        ],
+        series : [
+            {
+                name:'车友活动',
+                type:'bar',
+                barGap:0,
+                barWidth:10,
+                data:[30, 45, 73, 34, 58, 70, 60, 54, 63,50, 70]
+            },
+            {
+                name:'新车到店',
+                type:'bar',
+                barGap:0,
+                barWidth:10,
+                data:[80, 30, 48, 44, 87, 88, 180, 156,132, 145, 189]
+            },
+            {
+                name:'促销活动',
+                type:'bar',
+                barGap:0,
+                barWidth:10,
+                data:[20, 12, 18, 15, 19, 33, 41, 13, 18, 23, 21]
+            }
+        ]
+    };
+    activity.setOption(option);
+    //发布量
+    var release = echarts.init(document.getElementById('release'));
+    var option1 = {
+        title: {
+            text: '发布量统计',
+            textStyle: {
+                fontSize:12,
+                color:'#8E8E8E'
+            },
+            left: '2%',
+            top: '5%',
+        },
+
+        tooltip : {
+            trigger: 'axis',
+            axisPointer : {            // 坐标轴指示器，坐标轴触发有效
+                type : 'shadow'        // 默认为直线，可选为：'line' | 'shadow'
+            }
+        },
+        color: [
+            '#34EAB5', '#3CA1FD', '#00E1E7'
+        ],
+        legend: {
+            data:['汽车之家','易车','爱卡'],
+            right:'4%'
+        },
+        grid: {
+            left: '3%',
+            right: '4%',
+            bottom: '3%',
+            containLabel: true
+        },
+        xAxis : [
+            {
+                type : 'category',
+                axisTick: {
+                    show: false,
+                    // color:'#fff',
+                },
+                axisLine: {
+                    show: false,
+
+                },
+                axisLabel:{
+                    textStyle:{
+                        color: '#ccc',
+                        fontSize:'12',
+                    },
+                    interval:0,
+                },
+                data : ['1','2','3','4','5','6','7','8','9','10','11']
+            }
+        ],
+        yAxis : [
+            {
+                type : 'value',
+                axisTick: {
+                    show: false,
+                },
+                axisLine: {
+                    show: false,
+                },
+                axisLabel:{
+                    textStyle:{
+                        color: '#ccc',
+                        fontSize:'12',
+                    },
+                    interval:0,
+                },
+                splitLine: {
+                    show:true,
+                    lineStyle: {
+                        color: ['#ccc'],
+                        width: 1,
+                        type: 'dotted'
+                    }
+                }
+            }
+        ],
+        series : [
+            {
+                name:'汽车之家',
+                type:'line',
+                data:[30, 45, 73, 34, 58, 70, 60, 54, 63,50, 70]
+            },
+            {
+                name:'易车',
+                type:'line',
+                data:[80, 30, 48, 44, 87, 88, 180, 156,132, 145, 189]
+            },
+            {
+                name:'爱卡',
+                type:'line',
+                data:[20, 12, 18, 15, 19, 33, 41, 13, 18, 23, 21]
+            }
+        ]
+    };
+    release.setOption(option1);
+</script>
+</body>
+</html>

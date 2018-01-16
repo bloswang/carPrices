@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="../assets/bootstrap-3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/public.css">
+</head>
+<body>
+    <div class="left">
+        <ul class="left_box">
+            <li class="active1 one_nav">
+                <div class="nav_left">
+                    <img src="../img/one_nav.png" alt="" class="left_img">
+                </div>
+                <div class="nav_right">
+                    <a href='javascript:;'>媒体发布</a>
+                </div>
+            </li>
+            <li class="small_li">
+                <div class="nav_left"> </div>
+                <div class="nav_right">
+                    <a href='javascript:;'>发布量排行</a>
+                </div>
+            </li>
+            <li class="small_li">
+                <div class="nav_left"> </div>
+                <div class="nav_right">
+                    <a href='javascript:;'>促销信息</a>
+                </div>
+            </li>
+
+            <li class="one_nav">
+                <div class="nav_left">
+                    <img src="../img/one_nav.png" alt="" class="left_img">
+                </div>
+                <div class="nav_right">
+                    <a href='javascript:;'>优惠力度</a>
+                </div>
+            </li>
+            <li class="small_li">
+                <div class="nav_left"> </div>
+                <div class="nav_right">
+                    <a href='javascript:;'>优惠排行</a>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+    <script src="../assets/jQuery/jquery.min.js"></script>
+    <script>
+        $('.left_box li').click(function(){
+            $(this).addClass('active1').siblings().removeClass('active1')
+        })
+    </script>
+</body>
+</html>

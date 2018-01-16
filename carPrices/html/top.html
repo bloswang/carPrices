@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="../assets/bootstrap-3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/public.css">
+</head>
+<body>
+    <div class="top">
+        <div class="img_box">
+            <img src="../img/logo.png" alt="" class="top_img">
+            <span class="top_text">慧数汽车</span>
+        </div>
+        <ul class="top_box">
+            <li class="active_top">
+                <a href='javascript:;'>经销商管控</a>
+            </li>
+            <li>
+                <a href='javascript:;'>价格监测</a>
+            </li>
+        </ul>
+
+        <div class="user_msg">
+            <img src="../img/user.png" alt="">
+            <span class="userName">张萌萌</span>
+            <img src="../img/msg.png" alt="">
+            <span class="redBox">1</span>
+            <img src="../img/set.png" alt="">
+            <span class="out_btn">
+                <a href="javascript:;">
+                    退出
+                </a>
+            </span>
+        </div>
+    </div>
+
+    <script src="../assets/jQuery/jquery.min.js"></script>
+    <script>
+        $('.top_box li').click(function(){
+            $(this).addClass('active_top').siblings().removeClass('active_top')
+        })
+    </script>
+</body>
+</html>
