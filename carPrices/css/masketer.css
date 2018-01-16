@@ -1,0 +1,174 @@
+
+
+/*弹窗样式 start*/
+
+.modal-header{
+    background-color: #596177;
+    color: #dedfe4;
+    font-size: 16px;
+}
+.modal-content{
+    border-radius: 0;
+    box-shadow: none;
+    margin: 200px auto;
+    font-size: 0;
+}
+.modal-dialog{
+    margin: 0 auto;
+}
+
+.modal-footer{
+    text-align: center;
+    border-top: none;
+    padding: 30px 30px 30px 30px;
+}
+.modal-body{
+    /*text-align: center;*/
+    padding: 30px 30px 0 30px;
+}
+
+/*下拉框的样式*/
+
+.dropdown-toggle{
+    border-radius: 0;
+    height: 31px;
+}
+.bootstrap-select{
+    vertical-align: top;
+}
+.bs-caret{
+    display: inline-block;
+    background-color: #ebecee;
+    width: 31px;
+    margin-left: -10px;
+    height: 29px;
+    /* margin: -10px; */
+    margin-top: -6px;
+    /*margin-bottom: -12px;*/
+}
+.bootstrap-select.btn-group .dropdown-toggle .caret{
+    top: 50%;
+    width: 13px;
+    right: 8px;
+    color: #ffffff;
+}
+.filter-option{
+    font-size: 12px;
+}
+
+
+/*价格区间*/
+.range-box{
+    display: inline-block;
+    vertical-align: top;
+}
+.range-box .text{
+    display: inline-block;
+    padding: 6px 15px;
+    vertical-align: top;
+    font-size: 12px;
+    color: #a7a7a7;
+}
+.range-box .border-text{
+    padding: 4px 7px;
+}
+.range-box .border-text input{
+    width:100%;
+    border: none;
+    outline: none;
+}
+
+/*设置预警的弹窗*/
+.warning-modal{
+
+}
+.warning-modal .item{
+    display: flex;
+    justify-content: space-around;
+    margin-left: -30px;
+    margin-right: -30px;
+    padding: 10px 30px 10px 55px;
+    border-top: 1px solid #f0f0f0;
+}
+.warning-modal .item:last-child{
+    border-bottom: 1px solid #f0f0f0;
+}
+.warning-modal .item>span{
+    font-size: 12px;
+    /*border: 1px solid #333333;*/
+    flex-grow:2;
+}
+.warning-modal .item>span.icon-img{
+    text-align: center;
+    flex-grow:1;
+}
+.warning-modal .item>span.icon-img img:first-child{
+    margin-right: 20px;
+}
+
+
+/*自定义按钮样式*/
+.masketerBtn{
+    display: inline-block;
+    text-align: center;
+    padding: 10px;
+    font-size: 12px;
+    vertical-align: top;
+    color: #ffffff;
+    background-color: #596177;
+}
+.addBtn{
+    display: inline-block;
+    text-align: center;
+    font-size: 12px;
+    vertical-align: top;
+    color: #ffffff;
+    background-color: #7792bf;
+    width: 75px;
+    padding: 8px 15px;
+}
+
+.border-text{
+    vertical-align: top;
+    display: inline-block;
+    width: 90px;
+    padding: 6px 15px;
+    font-size: 12px;
+    color: #333333;
+    border: 1px solid #e0e0e0;
+}
+
+/*宽高外边距*/
+.full-width{
+    width: 100%;
+}
+.middle-width{
+    width: 750px;
+}
+.min-with{
+    width: 260px;
+}
+.mb15{
+    margin-bottom: 15px;
+}
+.mr20{
+    margin-right: 20px;
+}
+.with200{
+    width: 200px!important;
+}
+.with120{
+    width: 120px!important;
+}
+.with145{
+    width: 144px!important;
+}
+.with45{
+    width: 45px;
+}
+.float-left{
+    float: left;
+}
+.float-right{
+    float: right;
+}
