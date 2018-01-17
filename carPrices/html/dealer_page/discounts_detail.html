@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="../../assets/bootstrap-3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../css/public.css">
+    <script src="../../assets/jQuery/jquery.min.js"></script>
+    <script src="../../assets/bootstrap-3.3.7/js/bootstrap.min.js"></script>
+    <style>
+        body{
+            min-width: 1200px;
+            min-height: 700px;
+        }
+        .place{
+            margin-top: 20px;
+            margin-left: 10px;
+            font-weight: bold;
+        }
+        .place span{
+            font-size: 12px;
+            color: #8eacd3;
+        }
+    </style>
+</head>
+<body>
+<div class="bg">
+    <div class="content">
+        <p class="place">
+            北京-东城区 奥迪中汽店&nbsp;&nbsp;&nbsp;&nbsp;
+            <span>指导价14万</span>
+        </p>
+        <div id="release" style="width: 100%;height: 500px;"></div>
+    </div>
+    <div class="footer">
+        <p>Copyright 2015-2030 huishu All Rights Reserved. </p>
+        <p>慧数汽车   版权所有</p>
+    </div>
+</div>
+
+
+<script src="../../assets/echarts/echarts-all-3.js"></script>
+<script src="../../assets/echarts/china.js"></script>
+<script type="text/javascript">
+    //发布量
+    var release = echarts.init(document.getElementById('release'));
+    var option1 = {
+        title: {
+            text: '优惠幅度',
+            textStyle: {
+                fontSize:12,
+                color:'#8E8E8E'
+            },
+            left: '2%',
+            top: '5%',
+        },
+
+        tooltip : {
+            trigger: 'axis',
+            axisPointer : {            // 坐标轴指示器，坐标轴触发有效
+                type : 'shadow'        // 默认为直线，可选为：'line' | 'shadow'
+            }
+        },
+        color: ['#00E1E7'],
+        legend: {
+            data:['汽车之家'],
+            right:'4%'
+        },
+        grid: {
+            left: '3%',
+            right: '4%',
+            bottom: '3%',
+            containLabel: true
+        },
+        xAxis : [
+            {
+                type : 'category',
+                axisTick: {
+                    show: false,
+                    // color:'#fff',
+                },
+                axisLine: {
+                    show: false,
+
+                },
+                axisLabel:{
+                    textStyle:{
+                        color: '#ccc',
+                        fontSize:'12',
+                    },
+                    interval:0,
+                },
+                data : ['1月','2月','3月','4月','5月','6月','7月','8月','9月','10月','11月','12月']
+            }
+        ],
+        yAxis : [
+            {
+                type : 'value',
+                axisTick: {
+                    show: false,
+                },
+                axisLine: {
+                    show: false,
+                },
+                axisLabel:{
+                    textStyle:{
+                        color: '#ccc',
+                        fontSize:'12',
+                    },
+                    interval:0,
+                },
+                splitLine: {
+                    show:true,
+                    lineStyle: {
+                        color: ['#ccc'],
+                        width: 1,
+                        type: 'dotted'
+                    }
+                }
+            }
+        ],
+        series : [
+            {
+                name:'汽车之家',
+                type:'line',
+                symbolSize:10,
+                data:[30, 45, 73, 34, 58, 70, 60, 54, 63,50, 70, 50]
+            }
+        ]
+    };
+    release.setOption(option1);
+</script>
+</body>
+</html>

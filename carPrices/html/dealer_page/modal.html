@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=0">
+    <title>弹窗</title>
+
+    <!--css共用 start-->
+    <link rel="stylesheet" href="../../assets/bootstrap-3.3.7/css/bootstrap.css">
+    <link rel="stylesheet" href="../../assets/bootstrap-select/bootstrap-select.min.css">
+    <link rel="stylesheet" href="../../css/masketer.css">
+    <!--css共用 end-->
+
+    <!--js共用 start-->
+    <script src="../../assets/jQuery/jquery.min.js"></script>
+    <script src="../../assets/bootstrap-3.3.7/js/bootstrap.min.js"></script>
+    <script src="../../assets/bootstrap-select/bootstrap-select.min.js"></script>
+    <!--js共用 end-->
+
+
+</head>
+<body>
+<!-- 按钮触发模态框 -->
+<button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#chooseDataBtn">媒体发布选择数据源</button>
+<button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#warningSet">媒体发布预警设置</button>
+<button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#chooseDataBtn2">优惠力度选择数据源</button>
+<button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#warningSet2">优惠力度预警设置</button>
+<button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#chooseCar">选择车品</button>
+<button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#warningSet">价格分布预警设置</button>
+
+<!--选择数据源模态框 start-->
+<div class="modal fade" id="chooseDataBtn" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content min-with">
+            <div class="modal-header">
+                <!--<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>-->
+                <h4 class="modal-title text-center" id="myModalLabel">选择数据源</h4>
+            </div>
+            <div class="modal-body">
+                <select  class="selectpicker  mb15 with200">
+                <option>选择品牌</option>
+                </select>
+                <select  class="selectpicker  mb15 with200">
+                    <option>选择省/市</option>
+                </select>
+                <select  class="selectpicker  mb15 with200">
+                    <option>选择日期</option>
+                </select>
+
+            </div>
+            <div class="modal-footer">
+                <span class="masketerBtn full-width">确定</span>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal -->
+</div>
+<!--选择数据源模态框 end-->
+
+<!--预警设置模态框 start-->
+<div class="modal fade" id="warningSet" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content middle-width">
+            <div class="modal-header">
+                <!--<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>-->
+                <h4 class="modal-title text-center">预警设置</h4>
+            </div>
+            <div class="modal-body">
+                <select  class="selectpicker  mb15 mr20 with120">
+                    <option>选择品牌</option>
+                </select>
+                <select  class="selectpicker  mb15 mr20 with120">
+                    <option>选择品牌</option>
+                </select>
+                <select  class="selectpicker  mb15 mr20 with120">
+                    <option>选择品牌</option>
+                </select>
+
+                <div class="range-box">
+                    <span class="border-text ">
+                        <input type="text" value="预警线">
+                    </span>
+                </div>
+                <span class="border-text" style="border: none">条</span>
+                <span class="addBtn float-right">新增</span>
+
+                <div class="warning-modal">
+                    <div class="item">
+                        <span>奥迪</span>
+                        <span>北京</span>
+                        <span>每天</span>
+                        <span>20条</span>
+                        <span class="icon-img">
+                            <img src="../../img/masketer/icon_eye_close.png" alt="">
+                            <img src="../../img/masketer/icon_delete.png" alt="">
+                        </span>
+                    </div>
+                    <div class="item">
+                        <span>奥迪</span>
+                        <span>北京</span>
+                        <span>每天</span>
+                        <span>20条</span>
+                        <span class="icon-img">
+                            <img src="../../img/masketer/icon_eye_close.png" alt="">
+                            <img src="../../img/masketer/icon_delete.png" alt="">
+                        </span>
+                    </div>
+                    <div class="item">
+                        <span>奥迪</span>
+                        <span>北京</span>
+                        <span>每天</span>
+                        <span>20条</span>
+                        <span class="icon-img">
+                            <img src="../../img/masketer/icon_eye_close.png" alt="">
+                            <img src="../../img/masketer/icon_delete.png" alt="">
+                        </span>
+                    </div>
+                </div>
+
+
+            </div>
+            <div class="modal-footer">
+                <span class="masketerBtn full-width" style="width: 102px">确定</span>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal -->
+</div>
+<!--预警设置模态框 end-->
+
+
+<!--选择数据源模态框 start-->
+<div class="modal fade" id="chooseDataBtn2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content" style="width: 540px">
+            <div class="modal-header">
+                <!--<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>-->
+                <h4 class="modal-title text-center" >选择数据源</h4>
+            </div>
+            <div class="modal-body">
+
+                <select  class="selectpicker  mb15 mr20 with145">
+                    <option>选择省/市</option>
+                </select>
+                <select  class="selectpicker  mb15 mr20 with145">
+                    <option>选择车系</option>
+                </select>
+                <select  class="selectpicker  mb15  with145">
+                    <option>选择车型</option>
+                </select>
+                <select  class="selectpicker  mb15 mr20 with145">
+                    <option>选择品牌</option>
+                </select>
+                <select  class="selectpicker  mb15 mr20 with145">
+                    <option>选择日期</option>
+                </select>
+            </div>
+            <div class="modal-footer">
+                <span class="masketerBtn" style="width: 105px">确定</span>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal -->
+</div>
+<!--选择数据源模态框 end-->
+
+<!--预警设置模态框 start-->
+<div class="modal fade" id="warningSet2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog" style="width:930px;">
+        <div class="modal-content" >
+            <div class="modal-header">
+                <!--<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>-->
+                <h4 class="modal-title text-center">预警设置</h4>
+            </div>
+            <div class="modal-body">
+                <select  class="selectpicker  mb15 mr20 with120">
+                    <option>选择品牌</option>
+                </select>
+                <select  class="selectpicker  mb15 mr20 with120">
+                    <option>选择省/市</option>
+                </select>
+                <select  class="selectpicker  mb15 mr20 with120">
+                    <option>选择车系</option>
+                </select>
+                <select  class="selectpicker  mb15  with120">
+                    <option>选择车型</option>
+                </select>
+
+                <div class="range-box">
+                    <span class="text">优惠区间</span>
+                    <span class="border-text with45">
+                        <input type="text" value="2">
+                    </span>
+                    <span class="text">--</span>
+                    <span class="border-text with45">
+                        <input type="text" value="4">
+                    </span>
+                    <span class="text">万</span>
+                </div>
+                <span class="addBtn float-right">新增</span>
+
+                <div class="warning-modal">
+                    <div class="item">
+                        <span>哈弗</span>
+                        <span>哈弗</span>
+                        <span>经典款</span>
+                        <span>北京</span>
+                        <span>1-2万</span>
+                        <span class="icon-img">
+                            <img src="../../img/masketer/icon_eye_close.png" alt="">
+                            <img src="../../img/masketer/icon_delete.png" alt="">
+                        </span>
+                    </div>
+                    <div class="item">
+                        <span>哈弗</span>
+                        <span>哈弗</span>
+                        <span>经典款</span>
+                        <span>北京</span>
+                        <span>1-2万</span>
+                        <span class="icon-img">
+                            <img src="../../img/masketer/icon_eye_close.png" alt="">
+                            <img src="../../img/masketer/icon_delete.png" alt="">
+                        </span>
+                    </div>
+                    <div class="item">
+                        <span>哈弗</span>
+                        <span>哈弗</span>
+                        <span>经典款</span>
+                        <span>北京</span>
+                        <span>1-2万</span>
+                        <span class="icon-img">
+                            <img src="../../img/masketer/icon_eye_close.png" alt="">
+                            <img src="../../img/masketer/icon_delete.png" alt="">
+                        </span>
+                    </div>
+
+                </div>
+
+
+            </div>
+            <div class="modal-footer">
+                <span class="masketerBtn full-width" style="width: 102px">确定</span>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal -->
+</div>
+<!--预警设置模态框 end-->
+
+<!--选择车品弹窗-->
+
+<div class="modal fade" id="chooseCar" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content" style="width: 540px">
+            <div class="modal-header">
+                <!--<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>-->
+                <h4 class="modal-title text-center" >选择数据源</h4>
+            </div>
+            <div class="modal-body">
+                <select  class="selectpicker  mb15 mr20 with145">
+                    <option>选择国别</option>
+                </select>
+                <select  class="selectpicker  mb15 mr20 with145">
+                    <option>选择级别</option>
+                </select>
+                <select  class="selectpicker  mb15  with145">
+                    <option>选择类型</option>
+                </select>
+
+                <select  class="selectpicker  mb15 mr20 with145">
+                    <option>选择品牌</option>
+                </select>
+                <select  class="selectpicker  mb15  mr20 with145">
+                    <option>选择车系</option>
+                </select>
+                <select  class="selectpicker  mb15  with145">
+                    <option>选择车型</option>
+                </select>
+                <select  class="selectpicker  mb15 mr20 with145">
+                    <option>选择日期</option>
+                </select>
+            </div>
+            <div class="modal-footer">
+                <span class="masketerBtn" style="width: 105px">确定</span>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal -->
+</div>
+
+
+<!--选择车品弹窗-->
+
+
+
+<select id="slpk" class="selectpicker">
+    <option>选择品牌</option>
+</select>
+
+
+
+
+</body>
+<script>
+    $("#slpk").find('option').eq(0).css({"display":"none"});
+</script>
+</html>
