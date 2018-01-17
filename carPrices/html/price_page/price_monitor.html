@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en" style="height: auto">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=0">
+    <title>价格监测</title>
+    <link rel="stylesheet" href="../../assets/bootstrap-3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../assets/bootstrap-select/bootstrap-select.min.css">
+    <link rel="stylesheet" href="../../css/public.css">
+    <link rel="stylesheet" href="../../css/dealer.css">
+    <link rel="stylesheet" href="../../assets/bootstrop_table/bootstrap-table.min.css">
+
+    <script src="../../assets/jQuery/jquery.min.js"></script>
+    <script src="../../assets/bootstrap-3.3.7/js/bootstrap.min.js"></script>
+    <script src="../../assets/bootstrap-select/bootstrap-select.min.js"></script>
+    <script src="../../assets/bootstrop_table/bootstrap-table.min.js"></script>
+    <script>
+      $(function () {
+        $('#table').bootstrapTable({
+          columns: [{
+            field: 'dealer',
+            title: '经销商'
+          }, {
+            field: 'area',
+            title: '地区'
+          }, {
+            field: 'cartype',
+            title: '车型'
+          },{
+            field: 'guideprice',
+            title: '指导价',
+            sortable:true
+          },{
+            field: 'price',
+            title: '经销商报价',
+            sortable:true
+          }],
+          data: [{
+            dealer: "哈弗好运来4S店",
+            area: '石家庄',
+            cartype: '哈弗H6经典款',
+            guideprice: '15.5',
+            price: '14.6'
+          },{
+            dealer: "哈弗好运来4S店",
+            area: '石家庄',
+            cartype: '哈弗H6经典款',
+            guideprice: '16.5',
+            price: '14.6'
+          },{
+            dealer: "哈弗好运来4S店",
+            area: '石家庄',
+            cartype: '哈弗H6经典款',
+            guideprice: '15.5',
+            price: '14.6'
+          },{
+            dealer: "哈弗好运来4S店",
+            area: '石家庄',
+            cartype: '哈弗H6经典款',
+            guideprice: '16.5',
+            price: '14.6'
+          },{
+            dealer: "哈弗好运来4S店",
+            area: '石家庄',
+            cartype: '哈弗H6经典款',
+            guideprice: '15.5',
+            price: '14.6'
+          },{
+            dealer: "哈弗好运来4S店",
+            area: '石家庄',
+            cartype: '哈弗H6经典款',
+            guideprice: '16.5',
+            price: '14.6'
+          },{
+            dealer: "哈弗好运来4S店",
+            area: '石家庄',
+            cartype: '哈弗H6经典款',
+            guideprice: '15.5',
+            price: '14.6'
+          },{
+            dealer: "哈弗好运来4S店",
+            area: '石家庄',
+            cartype: '哈弗H6经典款',
+            guideprice: '16.5',
+            price: '14.6'
+          },{
+            dealer: "哈弗好运来4S店",
+            area: '石家庄',
+            cartype: '哈弗H6经典款',
+            guideprice: '15.5',
+            price: '14.6'
+          },{
+            dealer: "哈弗好运来4S店",
+            area: '石家庄',
+            cartype: '哈弗H6经典款',
+            guideprice: '16.5',
+            price: '14.6'
+          },{
+            dealer: "哈弗好运来4S店",
+            area: '石家庄',
+            cartype: '哈弗H6经典款',
+            guideprice: '15.5',
+            price: '14.6'
+          },{
+            dealer: "哈弗好运来4S店",
+            area: '石家庄',
+            cartype: '哈弗H6经典款',
+            guideprice: '16.5',
+            price: '14.6'
+          },{
+            dealer: "哈弗好运来4S店",
+            area: '石家庄',
+            cartype: '哈弗H6经典款',
+            guideprice: '15.5',
+            price: '14.6'
+          },{
+            dealer: "哈弗好运来4S店",
+            area: '石家庄',
+            cartype: '哈弗H6经典款',
+            guideprice: '16.5',
+            price: '14.6'
+          }]
+        });
+        $('tbody tr').on('click',function () {
+          /*判断当前元素的下一个兄弟元素是不是echart*/
+          if($(this).next().attr().data('index')){
+            //不是,添加echart
+            $(this).alert('<tr></tr>');
+          }else{
+            //是,删除echart
+
+          }
+        })
+      });
+      function createEcharts () {
+        
+      }
+
+    </script>
+</head>
+<body >
+<div class="bg" style="height: auto">
+    <div class="content" style="height: auto">
+        <div class="contents-list">
+            <div class="content-title">
+                <h4>促销信息</h4>
+                <div class="select-group">
+                    <select  class="selectpicker  mb15 mr20 with102">
+                        <option>选择品牌</option>
+                    </select>
+                    <select  class="selectpicker  mb15 mr20 with102">
+                        <option>选择区域</option>
+                    </select>
+                    <select  class="selectpicker  mb15 mr20 with102">
+                        <option>经销商</option>
+                    </select>
+                </div>
+            </div>
+
+        </div>
+        <div class="rank-list">
+            <table id="table" class="table price-table">
+
+            </table>
+        </div>
+        <div class="page-content"></div>
+
+    </div>
+    <div class="footer">
+        <p>Copyright 2015-2030 huishu All Rights Reserved. </p>
+        <p>慧数汽车   版权所有</p>
+    </div>
+</div>
+
+</body>
+</html>

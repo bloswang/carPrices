@@ -138,7 +138,6 @@
 .greenBtn:last-child{
     margin-right: 0;
 }
-
 .border-text{
     vertical-align: top;
     display: inline-block;
@@ -165,6 +164,18 @@
 .mr20{
     margin-right: 20px;
 }
+.mr30{
+    margin-right: 30px;
+}
+.mr10{
+    margin-right: 10px;
+}
+.mr40{
+    margin-right: 40px;
+}
+.ml40{
+    margin-left: 40px;
+}
 .with200{
     width: 200px!important;
 }
@@ -177,6 +188,9 @@ width: 102px!important;
 .with145{
     width: 144px!important;
 }
+.with35{
+    width: 35px;
+}
 .with45{
     width: 45px;
 }
@@ -186,7 +200,13 @@ width: 102px!important;
 .float-right{
     float: right;
 }
+.padding-bottom{
+    padding-bottom: 70px;
+}
 
+
+
+/*头部选择*/
 .contents-list{
     padding: 20px;
 }
@@ -216,6 +236,11 @@ width: 102px!important;
     width: 65px;
     margin-right: 40px;
     cursor: pointer;
+}
+.contents-list .item span.item-content>select{
+    left: -5px;
+    font-size: 12px;
+    position: relative;
 }
 .bootstrap-select .dropdown-toggle:focus {
     /*outline: thin dotted #333!important;*/
@@ -250,11 +275,120 @@ width: 102px!important;
 .message-list .item .item-from span:first-child{
     margin-right: 20px;
 }
-.page-content{
 
+/*分页组件*/
+.page-content{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 25px 0 30px 0;
 }
 .page-content .pagination{
     display: inline-block;
     vertical-align: top;
     margin: 0;
 }
+.page-content>span{
+    display: inline-block;
+    vertical-align: top;
+    cursor: pointer;
+}
+.page-content>span.grayText{
+    font-size: 12px;
+    color: #bdbdbd;
+}
+.page-content>span.blueText{
+    font-size: 12px;
+    color: #7590bd;
+}
+.page-content>span.left-text{
+    color: #888888;
+    position: absolute;
+    left: 20px;
+}
+
+.pagination>li>a {
+    border-radius: 50%;
+    margin-right: 10px;
+    border: none;
+}
+.pagination>li.no-number a:hover,.pagination>li.no-number a:focus{
+    background-color: #fff;
+}
+.pagination>li>a{
+    color: #b3b3b3;
+}
+.pagination>li>a:focus, .pagination>li>a:hover, .pagination>li>span:focus, .pagination>li>span:hover {
+    color: #d1dae9;
+    background-color: #7590bd;
+}
+
+
+/*发布量页面的表格*/
+.rank-list{
+    margin-left: -11px;
+    margin-right: -11px;
+}
+.release-table{
+
+}
+.release-table .th-inner{
+    text-align: center;
+    font-weight: normal;
+    font-size: 14px;
+    color: #666666;
+    background-color: #fafafa;
+    height: 50px;
+    line-height: 40px!important;
+
+}
+.release-table td{
+    text-align: center;
+    font-size: 14px;
+    color: #333333;
+    /*border: none;*/
+    border:0;
+}
+.release-table tr>td:first-child{
+    position: relative;
+    text-align: left;
+    padding-left: 150px!important;
+    width: 400px;
+}
+.release-table tr>td:first-child span{
+    position: absolute;
+    display: inline-block;
+    left: 125px;
+    font-size: 12px;
+    top: 6px;
+    line-height: 20px;
+    text-align: center;
+    /*z-index: 9;*/
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    color: #ffffff;
+    background-color: #ff4242;
+
+}
+
+/*价格的表格*/
+.price-table{
+
+}
+.price-table thead{
+    background-color: #fafafa;
+}
+.price-table .th-inner {
+    font-size: 14px;
+    color: #666666;
+    text-align: center;
+    font-weight: normal;
+}
+.price-table td{
+    text-align: center;
+    font-size: 14px;
+    color: #333333;
+}
+
