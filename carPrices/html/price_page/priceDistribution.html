@@ -41,9 +41,6 @@
             height:10%;
             width: 100%;
         }
-        #example{
-            width: 100px;
-        }
         .content_bottom{
             width: 100%;
             background: white;
@@ -66,6 +63,17 @@
             color: #8f8f8f;
             font-size: 12px;
         }
+        .carBtn{
+            width: 80px;
+            height: 25px;
+            border: 1px solid #ccc;
+            background: white;
+            color: #848484;
+            border-radius: 3px;
+            margin: 0 5px;
+            font-size: 12px;
+        }
+
     </style>
 </head>
 <body>
@@ -117,15 +125,7 @@
 
             <div class="center_box two">
                 <div class="chart_btn">
-                    <button type="button"
-                            id="example"
-                            class="btn btn-default"
-                            data-container="body"
-                            data-toggle="popover"
-                            data-placement="top"
-                            data-content="Vivamus">
-                            Popover on 顶部
-                    </button>
+
                 </div>
 
                 <div id="chart_T"></div>
@@ -172,15 +172,18 @@
                         <select  class="selectpicker  mb15  mr20 with145">
                             <option>选择车系</option>
                         </select>
-                        <select  class="selectpicker  mb15  with145">
+                        <select  class="selectpicker  mb15  with145" id="car_type">
                             <option>选择车型</option>
+                            <option>大众朗逸</option>
+                            <option>别克威朗</option>
+                            <option>本田思域</option>
                         </select>
                         <select  class="selectpicker  mb15 mr20 with145">
                             <option>选择日期</option>
                         </select>
                     </div>
                     <div class="modal-footer">
-                        <span class="masketerBtn" style="width: 105px">确定</span>
+                        <span class="masketerBtn" id="yes" style="width: 105px">确定</span>
                     </div>
                 </div><!-- /.modal-content -->
             </div><!-- /.modal -->
@@ -319,6 +322,32 @@
 <script src="../../assets/echarts/china.js"></script>
 <script src="../../js/require.js"></script>
 <script type="text/javascript">
+
+
+    $('#yes').on('click',function(){
+        $('#chooseCar').modal('toggle')
+        let car_dom =  $(".chart_btn").children().length
+        let name = $('#car_type').val()
+        let btn = "<input type='button' class='carBtn' onclick='change()' value=" + name +" >"
+
+        if( car_dom < 3){
+            if(name !=='选择车型'){
+                $(".chart_btn").append(btn);
+            }else{
+                alert('请选择车型')
+            }
+
+        } else {
+            alert("最多添加三个项目");
+        }
+
+
+    })
+    var change =  function(){
+
+        console.log('123')
+    }
+
     $('#example').popover('hide')
     //TOP10
     var TOP10 = echarts.init(document.getElementById('TOP10'));
