@@ -392,3 +392,9 @@ width: 102px!important;
     color: #333333;
 }
 
+.price-table tr.echart >td{
+    border: none;
+    height: 423px;
+    /*background-color: #333333;*/
+    /*display: none;*/
+}

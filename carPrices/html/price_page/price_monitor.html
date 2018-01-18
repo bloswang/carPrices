@@ -14,6 +14,7 @@
     <script src="../../assets/bootstrap-3.3.7/js/bootstrap.min.js"></script>
     <script src="../../assets/bootstrap-select/bootstrap-select.min.js"></script>
     <script src="../../assets/bootstrop_table/bootstrap-table.min.js"></script>
+    <script src="../../assets/echarts/echarts-all-3.js"></script>
     <script>
       $(function () {
         $('#table').bootstrapTable({
@@ -122,18 +123,140 @@
           }]
         });
         $('tbody tr').on('click',function () {
+          //删除所有的echart
+          $(this).siblings('tr').next('tr.echart').remove();
           /*判断当前元素的下一个兄弟元素是不是echart*/
-          if($(this).next().attr().data('index')){
-            //不是,添加echart
-            $(this).alert('<tr></tr>');
+          if($(this).next().data('index') == null){
+            if($(this).next('tr.echart').length == 0){
+              //如果是最后一个节点.则添加
+              $(this).after('<tr class="echart"><td colspan=5></td></tr>');
+              var dataX = ['2010','2012','2013','2014','2015','2016','2017','2018'];
+              var dataObj = [
+                {name:'经销商报价',data:[80, 30, 48, 44, 87, 88, 180, 156,132]},
+                {name:'指导价',data:[20, 12, 18, 15, 19, 33, 41, 13, 18]}
+              ];
+              createoption(dataX,dataObj);
+            }else {
+              $(this).next().remove();
+            }
+
           }else{
-            //是,删除echart
+            //不是,添加echart
+            $(this).after('<tr class="echart"><td colspan=5></td></tr>');
+            var dataX = ['2010','2012','2013','2014','2015','2016','2017','2018'];
+            var dataObj = [
+              {name:'经销商报价',data:[80, 30, 48, 44, 87, 88, 180, 156,132]},
+              {name:'指导价',data:[20, 12, 18, 15, 19, 33, 41, 13, 18]}
+            ];
+            createoption(dataX,dataObj);
 
           }
+        });
+        $('#table ').on('click','tr.echart td',function () {
+            $(this).parents('tr.echart').remove();
         })
       });
-      function createEcharts () {
-        
+
+      function createoption (dataX,dataObj) {
+        var option = {
+          title: {
+            text: '历年价格走势',
+            textStyle: {
+              fontSize:14,
+              color:'#465b97'
+            },
+            x:'50%',
+            y:'5%'
+          },
+
+          tooltip : {
+            trigger: 'axis',
+            axisPointer : {            // 坐标轴指示器，坐标轴触发有效
+              type : 'line'        // 默认为直线，可选为：'line' | 'shadow'
+            }
+          },
+          color: [
+            '#34EAB5', '#3CA1FD', '#00E1E7'
+          ],
+          legend: {
+            data:[dataObj[0].name,dataObj[1].name],
+            right:'4%',
+            top:'10%'
+          },
+          grid: {
+            left: '3%',
+            right: '4%',
+            bottom: '3%',
+            top:'20%',
+            containLabel: true
+          },
+          xAxis : [
+            {
+              type : 'category',
+              axisTick: {
+                show: false,
+                // color:'#fff',
+              },
+              axisLine: {
+                show: false,
+
+              },
+              axisLabel:{
+                textStyle:{
+                  color: '#ccc',
+                  fontSize:'12',
+                },
+                interval:0,
+              },
+              data : dataX
+            }
+          ],
+          yAxis : [
+            {
+              type : 'value',
+              axisTick: {
+                show: false,
+              },
+              axisLine: {
+                show: false,
+              },
+              axisLabel:{
+                textStyle:{
+                  color: '#ccc',
+                  fontSize:'12',
+                },
+                interval:0,
+              },
+              splitLine: {
+                show:true,
+                lineStyle: {
+                  color: ['#ccc'],
+                  width: 1,
+                  type: 'dotted'
+                }
+              }
+            }
+          ],
+          series : [
+
+            {
+              name:dataObj[0].name,
+              type:'line',
+              symbolSize:10,
+              data:dataObj[0].data
+            },
+            {
+              name:dataObj[1].name,
+              type:'line',
+              symbolSize:10,
+              data:dataObj[1].data
+            }
+          ]
+        };
+        var dom = $('.echart td').get(0);
+        var echart = echarts.init(dom);
+        echart.setOption(option);
+        $('.echart td').css({'borderTop':'1px solid #ebebeb'});
       }
 
     </script>
