@@ -307,17 +307,26 @@ width: 102px!important;
     position: absolute;
     left: 20px;
 }
+.pagination{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
 .pagination>li>a {
     border-radius: 50%;
     margin-right: 10px;
     border: none;
+    width: 30px;
+    height: 30px;
 }
-.pagination>li.no-number a:hover,.pagination>li.no-number a:focus{
-    background-color: #fff;
-}
+
 .pagination>li>a{
     color: #b3b3b3;
+}
+.pagination>span{
+    float: left;
+    margin-right:10px ;
 }
 .pagination>li>a:focus, .pagination>li>a:hover, .pagination>li>span:focus, .pagination>li>span:hover {
     color: #d1dae9;
@@ -397,4 +406,7 @@ width: 102px!important;
     height: 423px;
     /*background-color: #333333;*/
     /*display: none;*/
+}
+.blue-text{
+    color: #0066ff!important;
 }

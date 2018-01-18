@@ -222,8 +222,8 @@
                                 <span>每天</span>
                                 <span>20条</span>
                                 <span class="icon-img">
-                            <img src="../../img/masketer/icon_eye_close.png" alt="">
-                            <img src="../../img/masketer/icon_delete.png" alt="">
+                            <img src="../../img/dealer/icon_eye_close.png" alt="">
+                            <img src="../../img/dealer/icon_delete.png" alt="">
                         </span>
                             </div>
                             <div class="item">
@@ -232,8 +232,8 @@
                                 <span>每天</span>
                                 <span>20条</span>
                                 <span class="icon-img">
-                            <img src="../../img/masketer/icon_eye_close.png" alt="">
-                            <img src="../../img/masketer/icon_delete.png" alt="">
+                            <img src="../../img/dealer/icon_eye_close.png" alt="">
+                            <img src="../../img/dealer/icon_delete.png" alt="">
                         </span>
                             </div>
                             <div class="item">
@@ -242,8 +242,8 @@
                                 <span>每天</span>
                                 <span>20条</span>
                                 <span class="icon-img">
-                            <img src="../../img/masketer/icon_eye_close.png" alt="">
-                            <img src="../../img/masketer/icon_delete.png" alt="">
+                            <img src="../../img/dealer/icon_eye_close.png" alt="">
+                            <img src="../../img/dealer/icon_delete.png" alt="">
                         </span>
                             </div>
                         </div>
@@ -328,7 +328,9 @@
         $('#chooseCar').modal('toggle')
         let car_dom =  $(".chart_btn").children().length
         let name = $('#car_type').val()
-        let btn = "<input type='button' class='carBtn' onclick='change()' value=" + name +" >"
+//        let btn = "<input type='button' class='carBtn' onclick='change' value=" + name +" >";
+        var btn = $('<button class="carBtn">'+name+'</button>');
+        var del = 
 
         if( car_dom < 3){
             if(name !=='选择车型'){
