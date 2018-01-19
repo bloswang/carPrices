@@ -318,7 +318,7 @@
         },
         tooltip : {
             trigger: 'item',
-            formatter: '点击进入该省<br/>{b}{c}'
+            formatter: '点击进入该省<br/>{b}'
         },
         legend: {
             data:['发布量']
@@ -338,7 +338,6 @@
                 selectedMode : 'single',
                 itemStyle:{
                     normal:{
-                        color:'#03FDF6',
                         label:{
                             show:true
                         },
@@ -363,7 +362,7 @@
                     {name:'山东',value:Math.round(Math.random()*1000)},
                     {name:'江西',value:Math.round(Math.random()*1000)},
                     {name:'河南',value:Math.round(Math.random()*1000)},
-                    {name:'河北',value:Math.round(10000)},
+                    {name:'河北',value:Math.round(Math.random()*1000)},
                     {name:'山西',value:Math.round(Math.random()*1000)},
                     {name:'安徽',value:Math.round(Math.random()*1000)},
                     {name:'福建',value:Math.round(Math.random()*1000)},
@@ -749,8 +748,8 @@
                     {name: '定安县',value: Math.round(Math.random()*1000)},
                     {name: '保亭黎族苗族自治县',value: Math.round(Math.random()*1000)},
                     {name: '五指山市',value: Math.round(Math.random()*1000)}
-                ],
-            },
+                ]
+            }
         ]
     };
     china_chart.setOption(option1);
