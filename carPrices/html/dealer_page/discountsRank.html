@@ -6,7 +6,9 @@
     <title>优惠排行</title>
     <link rel="stylesheet" href="../../assets/bootstrap-3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="../../assets/bootstrap-select/bootstrap-select.min.css">
+
     <link rel="stylesheet" href="../../css/public.css">
+    <link rel="stylesheet" href="../../css/pager.css"/>
     <link rel="stylesheet" href="../../css/dealer.css">
     <link rel="stylesheet" href="../../assets/bootstrop_table/bootstrap-table.min.css">
 
@@ -14,7 +16,10 @@
     <script src="../../assets/bootstrap-3.3.7/js/bootstrap.min.js"></script>
     <script src="../../assets/bootstrap-select/bootstrap-select.min.js"></script>
     <script src="../../assets/bootstrop_table/bootstrap-table.min.js"></script>
+    <script src="../../js/pager.js"></script>
     <script src="../../js/public.js"></script>
+
+
 
     <script>
       $(function () {
@@ -115,7 +120,18 @@
             allmessage: '20'
           }]
         });
+        Page({
+              num:70,					//页码数
+              startnum:1,				//指定页码
+              elem:$('#page'),		//指定的元素
+              callback:function(n){	//回调函数
+                  console.log(n);
+              }
+          });
       });
+
+
+
 
     </script>
 </head>
@@ -146,7 +162,7 @@
             <div class="item">
                 <span class="item-title">车系:</span>
 
-                <span class="item-content">
+                <span>
                     <select class="" name="" id="">
                     <option value="">哈弗</option>
                     <option value="">哈弗</option>
@@ -159,7 +175,7 @@
             <div class="item">
                 <span class="item-title">车型:</span>
 
-                <span class="item-content">
+                <span>
                     <select class="" name="" >
                     <option value="">哈弗</option>
                     <option value="">哈弗</option>
@@ -187,37 +203,22 @@
         <div class="page-content">
             <span class="grayText left-text">共15家经销商</span>
             <span class="grayText mr30">共50页</span>
-            <ul class="pagination">
-                <li class="no-number"><a href="#"><img src="../../img/dealer/page_left_arrow.png" alt=""></a></li>
-                <li><a href="#">1</a></li>
-                <li><a href="#">2</a></li>
-                <li><a href="#">3</a></li>
-                <li><a href="#">4</a></li>
-                <li><a href="#">5</a></li>
-                <li><a href="#">6</a></li>
-                <li><a href="#">7</a></li>
-                <li class="no-number"><a href="#">....</a></li>
-                <li><a href="#">47</a></li>
-                <li><a href="#">48</a></li>
-                <li><a href="#">49</a></li>
-                <li><a href="#">50</a></li>
-                <li class="no-number"><a href="#"><img src="../../img/dealer/page_right_arrow.png" alt=""></a></li>
+            <ul class="pagination" id="page">
             </ul>
-            <span class="blueText mr10 ml40">跳转到</span>
-            <div class="range-box mr10">
-                <span class="border-text with35">
-                    <input type="text" value="">
-                </span>
+            <div class="pageJump">
+                <span>跳转到</span>
+                <input type="text"/>
+                <span>页</span>
+                <button type="button" class="button">确定</button>
             </div>
-            <span class="grayText mr40">页</span>
-            <span class="blueText">GO</span>
-
         </div>
     </div>
+
     <div class="footer">
         <p>Copyright 2015-2030 huishu All Rights Reserved. </p>
         <p>慧数汽车   版权所有</p>
     </div>
+
 </div>
 </body>
 </html>

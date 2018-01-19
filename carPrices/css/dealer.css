@@ -284,6 +284,16 @@ width: 102px!important;
     align-items: center;
     padding: 25px 0 30px 0;
 }
+.page-content>span.grayText{
+    font-size: 12px;
+    color: #bdbdbd;
+}
+.page-content>span.left-text{
+    color: #888888;
+    position: absolute;
+    left: 20px;
+}
+/*
 .page-content .pagination{
     display: inline-block;
     vertical-align: top;
@@ -294,19 +304,12 @@ width: 102px!important;
     vertical-align: top;
     cursor: pointer;
 }
-.page-content>span.grayText{
-    font-size: 12px;
-    color: #bdbdbd;
-}
+
 .page-content>span.blueText{
     font-size: 12px;
     color: #7590bd;
 }
-.page-content>span.left-text{
-    color: #888888;
-    position: absolute;
-    left: 20px;
-}
+
 .pagination{
     display: flex;
     justify-content: center;
@@ -331,7 +334,7 @@ width: 102px!important;
 .pagination>li>a:focus, .pagination>li>a:hover, .pagination>li>span:focus, .pagination>li>span:hover {
     color: #d1dae9;
     background-color: #7590bd;
-}
+}*/
 
 
 /*发布量页面的表格*/

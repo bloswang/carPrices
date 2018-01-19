@@ -8,12 +8,26 @@
     <link rel="stylesheet" href="../../assets/bootstrap-select/bootstrap-select.min.css">
     <link rel="stylesheet" href="../../css/public.css">
     <link rel="stylesheet" href="../../css/dealer.css">
+    <link rel="stylesheet" href="../../css/pager.css"/>
 
     <script src="../../assets/jQuery/jquery.min.js"></script>
     <script src="../../assets/bootstrap-3.3.7/js/bootstrap.min.js"></script>
     <script src="../../assets/bootstrap-select/bootstrap-select.min.js"></script>
     <script src="../../js/public.js"></script>
+    <script src="../../js/pager.js"></script>
+    <script>
+        $(function () {
+            Page({
+                num:70,					//页码数
+                startnum:1,				//指定页码
+                elem:$('#page'),		//指定的元素
+                callback:function(n){	//回调函数
+                    console.log(n);
+                }
+            });
+        });
 
+    </script>
 
 </head>
 <body>
@@ -164,16 +178,16 @@
             </div>
         </div>
         <div class="page-content">
-            <span class="text">共50页</span>
-            <ul class="pagination">
-                <li><a href="#">&laquo;</a></li>
-                <li><a href="#">1</a></li>
-                <li><a href="#">2</a></li>
-                <li><a href="#">3</a></li>
-                <li><a href="#">4</a></li>
-                <li><a href="#">5</a></li>
-                <li><a href="#">&raquo;</a></li>
+            <span class="grayText left-text">共15家经销商</span>
+            <span class="grayText mr30">共50页</span>
+            <ul class="pagination" id="page">
             </ul>
+            <div class="pageJump">
+                <span>跳转到</span>
+                <input  type="text"/>
+                <span>页</span>
+                <button type="button" class="button">确定</button>
+            </div>
         </div>
     </div>
     <div class="footer">
