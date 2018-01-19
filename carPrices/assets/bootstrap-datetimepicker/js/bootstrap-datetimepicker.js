@@ -1433,7 +1433,7 @@
       }
       /*
        vitalets: fixing bug of very special conditions:
-       jquery 1.7.1 + webkit + show inline datetimepicker in bootstrap popover.
+       jquery 1.7.1 + webkit + show inline datetimepicker in bootstrap boootstrap-popover.
        Method show() does not set display css correctly and datetimepicker is not shown.
        Changed to .css('display', 'block') solve the problem.
        See https://github.com/vitalets/x-editable/issues/37

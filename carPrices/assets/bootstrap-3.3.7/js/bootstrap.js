@@ -1776,7 +1776,7 @@ if (typeof jQuery === 'undefined') {
 }(jQuery);
 
 /* ========================================================================
- * Bootstrap: popover.js v3.3.7
+ * Bootstrap: boootstrap-popover.js v3.3.7
  * http://getbootstrap.com/javascript/#popovers
  * ========================================================================
  * Copyright 2011-2016 Twitter, Inc.
@@ -1802,7 +1802,7 @@ if (typeof jQuery === 'undefined') {
     placement: 'right',
     trigger: 'click',
     content: '',
-    template: '<div class="popover" role="tooltip"><div class="arrow"></div><h3 class="popover-title"></h3><div class="popover-content"></div></div>'
+    template: '<div class="boootstrap-popover" role="tooltip"><div class="arrow"></div><h3 class="boootstrap-popover-title"></h3><div class="boootstrap-popover-content"></div></div>'
   })
 
 
@@ -1822,8 +1822,8 @@ if (typeof jQuery === 'undefined') {
     var title   = this.getTitle()
     var content = this.getContent()
 
-    $tip.find('.popover-title')[this.options.html ? 'html' : 'text'](title)
-    $tip.find('.popover-content').children().detach().end()[ // we use append for html objects to maintain js events
+    $tip.find('.boootstrap-popover-title')[this.options.html ? 'html' : 'text'](title)
+    $tip.find('.boootstrap-popover-content').children().detach().end()[ // we use append for html objects to maintain js events
       this.options.html ? (typeof content == 'string' ? 'html' : 'append') : 'text'
     ](content)
 
@@ -1831,7 +1831,7 @@ if (typeof jQuery === 'undefined') {
 
     // IE8 doesn't accept hiding via the `:empty` pseudo selector, we have to do
     // this manually by checking the contents.
-    if (!$tip.find('.popover-title').html()) $tip.find('.popover-title').hide()
+    if (!$tip.find('.boootstrap-popover-title').html()) $tip.find('.boootstrap-popover-title').hide()
   }
 
   Popover.prototype.hasContent = function () {
