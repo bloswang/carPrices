@@ -410,3 +410,36 @@ width: 102px!important;
 .blue-text{
     color: #0066ff!important;
 }
+
+
+
+/*提示框*/
+.tooltip-icon{
+    display: block;
+    vertical-align: middle;
+    font-size: 12px;
+    color: #808080;
+    padding: 8px 15px;
+}
+.tooltip-icon:hover{
+    background-color: #f5f5f5;
+}
+.tooltip-icon:first-child{
+    /*padding-top: 10px;*/
+    border-bottom: 1px solid #dfdfdf;
+}
+.tooltip-icon:last-child{
+    /*padding-bottom: 10px;*/
+}
+.tooltip-icon img{
+    margin-right: 8px;
+}
+.popover{
+    border-radius: 0;
+    padding: 0;
+    height: auto!important;
+    background: #ffffff!important;
+}
+.popover-content{
+    padding: 0;
+}
