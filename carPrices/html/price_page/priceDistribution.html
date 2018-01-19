@@ -348,6 +348,7 @@ $(function () {
 
   //添加左上角的按钮的方法
   function addBtn () {
+      let name = $('#car_type').val();
     var btn = $('<button class="carBtn" data-toggle="popover">'+name+'</button>');
     let car_dom =  $(".chart_btn").children().length
     if( car_dom < 3){
