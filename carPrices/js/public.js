@@ -33,6 +33,36 @@ $(function () {
         alert('请务必选择年份或月份');
       }
   });
+  
+  
+  function returnItem () {
+    var pp = $('.modal-body2').find('.date-select').eq(0).find('.select-text').html();
+    var dq = $('.modal-body2').find('.date-select').eq(1).find('.select-text').html();
+    var sj = $('.modal-body2').find('.date-select').eq(2).find('.select-text').html();
+    var ts = $('.modal-body2').find('.border-text').find('input').val();
+    var html = '<div class="item">' +
+      '<span>'+pp+'</span>' +
+      '<span>'+dq+'</span>' +
+      '<span>'+sj+'</span>' +
+      '<span>'+ts+'条'+'</span>' +
+      '<span class="icon-img">' +
+      '<span><img src="../../img/dealer/icon_eye_close.png" alt=""></span>' +
+      '<span class="remove_item"><img src="../../img/dealer/icon_delete.png" alt=""></span>' +
+      '</span>\n' +
+      '</div>';
+    return html;
+  }
+
+ 
+  $('.addBtn').on('click',function(){
+    var html  = returnItem();
+    $('.warning-modal').append(html);
+  })
+
+  $('.warning-modal').on('click','.remove_item',function(){
+    $(this).closest('div').remove();
+  })
+
 
 
 
