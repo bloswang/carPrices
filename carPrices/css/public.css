@@ -267,10 +267,10 @@ em,i{font-style:normal;}
     height:78%;
     border:1px solid rgba(150,150,150,0.2);
     box-shadow:0 0 10px  rgba(150,150,150,0.5);
-    padding: 10px;
+    padding: 8px;
 }
 .notUp_item{
-    padding: 10px;
+    padding: 10px 0;
 }
 .notUp_count{
     font-size: 14px;

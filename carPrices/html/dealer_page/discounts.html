@@ -12,6 +12,8 @@
     <script src="../../assets/bootstrap-3.3.7/js/bootstrap.min.js"></script>
     <script src="../../assets/bootstrap-select/bootstrap-select.min.js"></script>
 
+    <script src="../../js/public.js"></script>
+
 
     <style>
         body{
@@ -107,22 +109,81 @@
                         <h4 class="modal-title text-center" >选择数据源</h4>
                     </div>
                     <div class="modal-body">
-
-                        <select  class="selectpicker  mb15 mr20 with145">
-                            <option>选择省/市</option>
-                        </select>
-                        <select  class="selectpicker  mb15 mr20 with145">
-                            <option>选择车系</option>
-                        </select>
-                        <select  class="selectpicker  mb15  with145">
-                            <option>选择车型</option>
-                        </select>
-                        <select  class="selectpicker  mb15 mr20 with145">
-                            <option>选择品牌</option>
-                        </select>
-                        <select  class="selectpicker  mb15 mr20 with145">
-                            <option>选择日期</option>
-                        </select>
+                        <div class="date-select mb15 mr20 with145">
+                            <div class="select-show-box">
+                                <span class="select-text">选择省/市</span>
+                                <span>
+                                    <img src="../../img/dealer/date_select_arrow.png" alt="">
+                                </span>
+                            </div>
+                            <div class="select-hidden-box">
+                                <div>车型1</div>
+                                <div>车型2</div>
+                                <div>车型3</div>
+                                <div>车型4</div>
+                                <div>车型5</div>
+                            </div>
+                        </div>
+                        <div class="date-select mb15 mr20 with145">
+                            <div class="select-show-box">
+                                <span class="select-text">选择车系</span>
+                                <span>
+                                    <img src="../../img/dealer/date_select_arrow.png" alt="">
+                                </span>
+                            </div>
+                            <div class="select-hidden-box">
+                                <div>车型1</div>
+                                <div>车型2</div>
+                                <div>车型3</div>
+                                <div>车型4</div>
+                                <div>车型5</div>
+                            </div>
+                        </div>
+                        <div class="date-select mb15  with145">
+                            <div class="select-show-box">
+                                <span class="select-text">选择车型</span>
+                                <span>
+                                    <img src="../../img/dealer/date_select_arrow.png" alt="">
+                                </span>
+                            </div>
+                            <div class="select-hidden-box">
+                                <div>车型1</div>
+                                <div>车型2</div>
+                                <div>车型3</div>
+                                <div>车型4</div>
+                                <div>车型5</div>
+                            </div>
+                        </div>
+                        <div class="date-select mb15 mr20 with145">
+                            <div class="select-show-box">
+                                <span class="select-text">选择品牌</span>
+                                <span>
+                                    <img src="../../img/dealer/date_select_arrow.png" alt="">
+                                </span>
+                            </div>
+                            <div class="select-hidden-box">
+                                <div>车型1</div>
+                                <div>车型2</div>
+                                <div>车型3</div>
+                                <div>车型4</div>
+                                <div>车型5</div>
+                            </div>
+                        </div>
+                        <div class="date-select mb15 mr20 with145">
+                            <div class="select-show-box">
+                                <span class="select-text">选择日期</span>
+                                <span>
+                                    <img src="../../img/dealer/date_select_arrow.png" alt="">
+                                </span>
+                            </div>
+                            <div class="select-hidden-box">
+                                <div>车型1</div>
+                                <div>车型2</div>
+                                <div>车型3</div>
+                                <div>车型4</div>
+                                <div>车型5</div>
+                            </div>
+                        </div>
                     </div>
                     <div class="modal-footer">
                         <span class="masketerBtn" style="width: 105px">确定</span>
@@ -141,18 +202,66 @@
                         <h4 class="modal-title text-center">预警设置</h4>
                     </div>
                     <div class="modal-body">
-                        <select  class="selectpicker  mb15 mr20 with120">
-                            <option>选择品牌</option>
-                        </select>
-                        <select  class="selectpicker  mb15 mr20 with120">
-                            <option>选择省/市</option>
-                        </select>
-                        <select  class="selectpicker  mb15 mr20 with120">
-                            <option>选择车系</option>
-                        </select>
-                        <select  class="selectpicker  mb15  with120">
-                            <option>选择车型</option>
-                        </select>
+                        <div class="date-select mb15 mr20 with120">
+                            <div class="select-show-box">
+                                <span class="select-text">选择品牌</span>
+                                <span>
+                                    <img src="../../img/dealer/date_select_arrow.png" alt="">
+                                </span>
+                            </div>
+                            <div class="select-hidden-box">
+                                <div>车型1</div>
+                                <div>车型2</div>
+                                <div>车型3</div>
+                                <div>车型4</div>
+                                <div>车型5</div>
+                            </div>
+                        </div>
+                        <div class="date-select mb15 mr20 with120">
+                            <div class="select-show-box">
+                                <span class="select-text">选择省/市</span>
+                                <span>
+                                    <img src="../../img/dealer/date_select_arrow.png" alt="">
+                                </span>
+                            </div>
+                            <div class="select-hidden-box">
+                                <div>车型1</div>
+                                <div>车型2</div>
+                                <div>车型3</div>
+                                <div>车型4</div>
+                                <div>车型5</div>
+                            </div>
+                        </div>
+                        <div class="date-select mb15 mr20 with120">
+                            <div class="select-show-box">
+                                <span class="select-text">选择车系</span>
+                                <span>
+                                    <img src="../../img/dealer/date_select_arrow.png" alt="">
+                                </span>
+                            </div>
+                            <div class="select-hidden-box">
+                                <div>车型1</div>
+                                <div>车型2</div>
+                                <div>车型3</div>
+                                <div>车型4</div>
+                                <div>车型5</div>
+                            </div>
+                        </div>
+                        <div class="date-select mb15 mr20 with120">
+                            <div class="select-show-box">
+                                <span class="select-text">选择车型</span>
+                                <span>
+                                    <img src="../../img/dealer/date_select_arrow.png" alt="">
+                                </span>
+                            </div>
+                            <div class="select-hidden-box">
+                                <div>车型1</div>
+                                <div>车型2</div>
+                                <div>车型3</div>
+                                <div>车型4</div>
+                                <div>车型5</div>
+                            </div>
+                        </div>
 
                         <div class="range-box">
                             <span class="text">优惠区间</span>
