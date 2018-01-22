@@ -75,7 +75,38 @@
             margin: 0 5px;
             font-size: 12px;
         }
-
+        /*top10排序的央视，三角标*/
+        .up{
+            display: inline-block;
+            width:0;
+            height:0;
+            border-left:6px solid transparent;
+            border-right:6px solid transparent;
+            border-bottom:6px solid #ccc;
+            position: absolute;
+            top:20%;
+            left:40%;
+        }
+        .down{
+            display: inline-block;
+            width:0;
+            height:0;
+            border-left:6px solid transparent;
+            border-right:6px solid transparent;
+            border-top:6px solid #ccc;
+            position: absolute;
+            bottom:20%;
+            left:40%;
+        }
+        .up_color{
+            border-bottom:6px solid #8eacd3;
+        }
+        .down_color{
+            border-top:6px solid #8eacd3;
+        }
+        .px_F{
+            position: relative;
+        }
     </style>
 </head>
 <body>
@@ -134,8 +165,10 @@
             </div>
 
             <div class="center_box three">
-                <p>
+                <p class="px_F">
                     <span class="topText">优惠力度TOP10</span>
+                    <span class="up px "></span>
+                    <span class="down px down_color"></span>
                     <span class="carName">(北京哈佛H6经典款)</span>
                     <span class="moreText">
                             <a href="#">更多</a>
@@ -450,8 +483,8 @@
             <div class="select-show-box">
                 <span class="select-text">选择品牌</span>
                 <span>
-                                    <img src="../../img/dealer/date_select_arrow.png" alt="">
-                                </span>
+                    <img src="../../img/dealer/date_select_arrow.png" alt="">
+                </span>
             </div>
             <div class="select-hidden-box">
                 <div>车型1</div>
@@ -466,8 +499,8 @@
             <div class="select-show-box">
                 <span class="select-text">选择级别</span>
                 <span>
-                                    <img src="../../img/dealer/date_select_arrow.png" alt="">
-                                </span>
+                    <img src="../../img/dealer/date_select_arrow.png" alt="">
+                </span>
             </div>
             <div class="select-hidden-box">
                 <div>车型1</div>
@@ -482,8 +515,8 @@
             <div class="select-show-box">
                 <span class="select-text">选择车系</span>
                 <span>
-                                    <img src="../../img/dealer/date_select_arrow.png" alt="">
-                                </span>
+                    <img src="../../img/dealer/date_select_arrow.png" alt="">
+                </span>
             </div>
             <div class="select-hidden-box">
                 <div>车型1</div>
@@ -497,8 +530,8 @@
             <div class="select-show-box">
                 <span class="select-text">选择年贷款</span>
                 <span>
-                                    <img src="../../img/dealer/date_select_arrow.png" alt="">
-                                </span>
+                    <img src="../../img/dealer/date_select_arrow.png" alt="">
+                </span>
             </div>
             <div class="select-hidden-box">
                 <div>车型1</div>
@@ -512,8 +545,8 @@
             <div class="select-show-box">
                 <span class="select-text">选择车型</span>
                 <span>
-                                    <img src="../../img/dealer/date_select_arrow.png" alt="">
-                                </span>
+                    <img src="../../img/dealer/date_select_arrow.png" alt="">
+                </span>
             </div>
             <div class="select-hidden-box">
                 <div>车型1</div>
@@ -527,8 +560,8 @@
             <div class="select-show-box">
                 <span class="select-text">选择时间</span>
                 <span>
-                                    <img src="../../img/dealer/date_select_arrow.png" alt="">
-                                </span>
+                    <img src="../../img/dealer/date_select_arrow.png" alt="">
+                </span>
             </div>
             <div class="select-hidden-box">
                 <div>车型1</div>
@@ -623,72 +656,93 @@ $(function () {
   });
 
     //TOP10
-    var TOP10 = echarts.init(document.getElementById('TOP10'));
-    var option = {
-        tooltip: {
-            trigger: 'axis',
-            axisPointer: {
-                type: 'shadow'
-            }
-        },
-        grid: {
-            zlevel: 0,
-            z: 0,
-            x: 80,
-            y: 0,
-            x2: 20,
-            y2: 60,
-            borderWidth: 0 ,
-        },
-        xAxis: {
-            type: 'value',
-            show: false,
-            boundaryGap: [0, 0.01],
-            splitLine:{
-                show:false,
+    var dataValue = [ 11003, 11111, 11260, 11820, 23489, 29034, 104970, 131744, 155666, 230230]
+    var dataName = ['深创投','顺为资本','晨星资本','阿里巴巴','IDG资本','真格基金','经纬腾讯','腾讯','创新工场', '红杉资本']
+    var top10_fn  = function(dataName,dataValue){
+        var TOP10 = echarts.init(document.getElementById('TOP10'));
+        var option = {
+            tooltip: {
+                trigger: 'axis',
+                axisPointer: {
+                    type: 'shadow'
+                }
             },
-        },
-        yAxis: {
-            type: 'category',
-            borderWidth: 0 ,
-            axisTick:{
-                show:false
+            grid: {
+                zlevel: 0,
+                z: 0,
+                x: 80,
+                y: 0,
+                x2: 20,
+                y2: 60,
+                borderWidth: 0 ,
             },
-            axisLine:{
-                show:false
-            },
-            splitLine:{
-                show:false,
-            },
-            data: ['深创投','顺为资本','晨星资本','阿里巴巴','IDG资本','真格基金','经纬腾讯','腾讯','创新工场', '红杉资本']
-        },
-        series: [
-            {
-                name:'发布量',
-                type: 'bar',
-                barWidth:15,
-                itemStyle:{
-                    normal:{
-                        color:'#8eacd3',
-                        barBorderRadius: 5
-                    },
-                    emphasis: {
-                        barBorderRadius: 5
-                    },
+            xAxis: {
+                type: 'value',
+                show: false,
+                boundaryGap: [0, 0.01],
+                splitLine:{
+                    show:false,
                 },
-                label:{
-                    normal:{
-                        show: true,
-                        position: 'right'
-                    }
-                },
-                data: [ 11003, 11111, 11260, 11820, 23489, 29034, 104970, 131744, 155666, 230230]
-
             },
+            yAxis: {
+                type: 'category',
+                borderWidth: 0 ,
+                axisTick:{
+                    show:false
+                },
+                axisLine:{
+                    show:false
+                },
+                splitLine:{
+                    show:false,
+                },
+                data:dataName
+            },
+            series: [
+                {
+                    name:'发布量',
+                    type: 'bar',
+                    barWidth:15,
+                    itemStyle:{
+                        normal:{
+                            color:'#8eacd3',
+                            barBorderRadius: 5
+                        },
+                        emphasis: {
+                            barBorderRadius: 5
+                        },
+                    },
+                    label:{
+                        normal:{
+                            show: true,
+                            position: 'right'
+                        }
+                    },
+                    data:dataValue
 
-        ]
-    };
-    TOP10.setOption(option);
+                },
+
+            ]
+        };
+        TOP10.setOption(option);
+        TOP10.on('click',function(params){
+            /*alert(params.name)*/
+            window.location.href = './notUpItem.html';
+        })
+    }
+    top10_fn(dataName,dataValue)
+
+    /*TOP10排序切换按钮*/
+    $('.up').on('click',function(){
+        $(this).removeClass('up_color')
+        $('.down').addClass('down_color')
+        top10_fn(dataName.reverse(),dataValue.reverse())
+    })
+    $('.down').on('click',function(){
+        $(this).removeClass('down_color')
+        $('.up').addClass('up_color')
+        top10_fn(dataName.reverse(),dataValue.reverse())
+    })
 
     var china_chart = echarts.init(document.getElementById('china_chart'));
     var curIndx = 0;
@@ -1179,7 +1233,6 @@ $(function () {
     };
     china_chart.setOption(option1);
 
-  //TOP10
   var price_go = echarts.init(document.getElementById('price_go'));
   var option3 = {
     color: ['#3CA1FD', '#00E1E7'],

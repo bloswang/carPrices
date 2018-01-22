@@ -5,9 +5,8 @@
     <title>Title</title>
     <link rel="stylesheet" href="../../assets/bootstrap-3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="../../assets/bootstrap-select/bootstrap-select.min.css">
-    <link rel="stylesheet" href="../../css/public.css">
     <link rel="stylesheet" href="../../css/dealer.css">
-
+    <link rel="stylesheet" href="../../css/public.css">
     <script src="../../assets/jQuery/jquery.min.js"></script>
     <script src="../../assets/bootstrap-3.3.7/js/bootstrap.min.js"></script>
     <script src="../../assets/bootstrap-select/bootstrap-select.min.js"></script>
@@ -20,6 +19,38 @@
             min-width: 1200px;
             min-height: 700px;
         }
+        .up{
+            display: inline-block;
+            width:0;
+            height:0;
+            border-left:6px solid transparent;
+            border-right:6px solid transparent;
+            border-bottom:6px solid #ccc;
+            position: absolute;
+            top:20%;
+            left:48%;
+        }
+        .down{
+            display: inline-block;
+            width:0;
+            height:0;
+            border-left:6px solid transparent;
+            border-right:6px solid transparent;
+            border-top:6px solid #ccc;
+            position: absolute;
+            bottom:20%;
+            left:48%;
+        }
+        .up_color{
+            border-bottom:6px solid #8eacd3;
+        }
+        .down_color{
+            border-top:6px solid #8eacd3;
+        }
+        .px_F{
+            position: relative;
+        }
+
     </style>
 </head>
 <body>
@@ -81,8 +112,10 @@
                 <div id="china_chart"></div>
             </div>
             <div class="center_box three">
-                <p>
+                <p class="px_F">
                     <span class="topText">北京发布量TOP10</span>
+                    <span class="up px "></span>
+                    <span class="down px down_color"></span>
                     <span class="moreText">
                             <a href="#">更多</a>
                     </span>
@@ -246,72 +279,96 @@
 <script src="../../js/echarts-all.js"></script>
 <script type="text/javascript">
     //TOP10
-    var TOP10 = echarts.init(document.getElementById('TOP10'));
-    var option = {
-        tooltip: {
-            trigger: 'axis',
-            axisPointer: {
-                type: 'shadow'
-            }
-        },
-        grid: {
-            zlevel: 0,
-            z: 0,
-            x: 80,
-            y: 0,
-            x2: 20,
-            y2: 60,
-            borderWidth: 0 ,
-        },
-        xAxis: {
-            type: 'value',
-            show: false,
-            boundaryGap: [0, 0.01],
-            splitLine:{
-                show:false,
+    var dataValue = [ 11003, 11111, 11260, 11820, 23489, 29034, 104970, 131744, 155666, 230230]
+    var dataName = ['深创投','顺为资本','晨星资本','阿里巴巴','IDG资本','真格基金','经纬腾讯','腾讯','创新工场', '红杉资本']
+    var top10_fn  = function(dataName,dataValue){
+        var TOP10 = echarts.init(document.getElementById('TOP10'));
+        var option = {
+            tooltip: {
+                trigger: 'axis',
+                axisPointer: {
+                    type: 'shadow'
+                }
             },
-        },
-        yAxis: {
-            type: 'category',
-            borderWidth: 0 ,
-            axisTick:{
-                show:false
+            grid: {
+                zlevel: 0,
+                z: 0,
+                x: 80,
+                y: 0,
+                x2: 20,
+                y2: 60,
+                borderWidth: 0 ,
             },
-            axisLine:{
-                show:false
-            },
-            splitLine:{
-                show:false,
-            },
-            data: ['深创投','顺为资本','晨星资本','阿里巴巴','IDG资本','真格基金','经纬腾讯','腾讯','创新工场', '红杉资本']
-        },
-        series: [
-            {
-                name:'发布量',
-                type: 'bar',
-                barWidth:15,
-                itemStyle:{
-                    normal:{
-                        color:'#8eacd3',
-                        barBorderRadius: 5
-                    },
-                    emphasis: {
-                        barBorderRadius: 5
-                    },
+            xAxis: {
+                type: 'value',
+                show: false,
+                boundaryGap: [0, 0.01],
+                splitLine:{
+                    show:false,
                 },
-                label:{
-                    normal:{
-                        show: true,
-                        position: 'right'
-                    }
-                },
-                data: [ 11003, 11111, 11260, 11820, 23489, 29034, 104970, 131744, 155666, 230230]
-
             },
+            yAxis: {
+                type: 'category',
+                borderWidth: 0 ,
+                axisTick:{
+                    show:false
+                },
+                axisLine:{
+                    show:false
+                },
+                splitLine:{
+                    show:false,
+                },
+                data:dataName
+            },
+            series: [
+                {
+                    name:'发布量',
+                    type: 'bar',
+                    barWidth:15,
+                    itemStyle:{
+                        normal:{
+                            color:'#8eacd3',
+                            barBorderRadius: 5
+                        },
+                        emphasis: {
+                            barBorderRadius: 5
+                        },
+                    },
+                    label:{
+                        normal:{
+                            show: true,
+                            position: 'right'
+                        }
+                    },
+                    data:dataValue
 
-        ]
-    };
-    TOP10.setOption(option);
+                },
+
+            ]
+        };
+        TOP10.setOption(option);
+        TOP10.on('click',function(params){
+            /*alert(params.name)*/
+            window.location.href = './notUpItem.html';
+        })
+    }
+    top10_fn(dataName,dataValue)
+
+    /*TOP10排序切换按钮*/
+    $('.up').on('click',function(){
+        $(this).removeClass('up_color')
+        $('.down').addClass('down_color')
+        top10_fn(dataName.reverse(),dataValue.reverse())
+    })
+    $('.down').on('click',function(){
+        $(this).removeClass('down_color')
+        $('.up').addClass('up_color')
+        top10_fn(dataName.reverse(),dataValue.reverse())
+    })
+
+
+
 
     var china_chart = echarts.init(document.getElementById('china_chart'));
     var curIndx = 0;
@@ -347,12 +404,10 @@
                     break;
                 }
             }
-            option1.tooltip.formatter = '点击返回全国<br/>{b}';
         }
         else {
             curIndx = 0;
             mt = 'china';
-            option1.tooltip.formatter = '点击进入该省<br/>{b}';
         }
         option1.series[0].mapType = mt;
         option1.series[1].mapType = mt;
@@ -366,6 +421,15 @@
         },
         tooltip : {
             trigger: 'item',
+            formatter: function (params) {
+                var res = '<div>' +
+                    '<p>发布条数：'+params[2]+'条</p>' +
+                    '<p>经销商：'+params[2]+'家</p>' +
+                    '<p>均值：'+params[2]+'</p>' +
+                    '</div>';
+                return res
+
+            }
         },
         legend: {
             data:['发布量','不达标']
@@ -379,7 +443,7 @@
         },
         series : [
             {
-                name: '发布量',
+                name:'发布量',
                 type: 'map',
                 mapType: 'china',
                 selectedMode : 'single',
@@ -388,6 +452,7 @@
                         label:{
                             show:true
                         },
+                        color:'#02FFF5',
                         borderColor: 'white',
                         borderWidth:2,
                     },
@@ -395,11 +460,7 @@
                 },
                 data:[
                     // 23个省
-                    {name:'广东',value:Math.round(200)},
-                    {name:'青海',value:Math.round(Math.random()*1000)},
-                    {name:'四川',value:Math.round(Math.random()*1000)},
-                    {name:'海南',value:Math.round(Math.random()*1000)},
-                    {name:'陕西',value:Math.round(Math.random()*1000)},
+
                     {name:'甘肃',value:Math.round(Math.random()*1000)},
                     {name:'云南',value:Math.round(Math.random()*1000)},
                     {name:'湖南',value:Math.round(Math.random()*1000)},
@@ -807,6 +868,7 @@
                         label:{
                             show:true
                         },
+                        color:'red',
                         borderColor: 'white',
                         borderWidth:2,
                     },
@@ -824,6 +886,8 @@
         ]
     };
     china_chart.setOption(option1);
+
+
 </script>
 </body>
 </html>
