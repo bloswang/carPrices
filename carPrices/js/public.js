@@ -39,17 +39,35 @@ $(function () {
     var pp = $('.modal-body2').find('.date-select').eq(0).find('.select-text').html();
     var dq = $('.modal-body2').find('.date-select').eq(1).find('.select-text').html();
     var sj = $('.modal-body2').find('.date-select').eq(2).find('.select-text').html();
-    var ts = $('.modal-body2').find('.border-text').find('input').val();
-    var html = '<div class="item">' +
-      '<span>'+pp+'</span>' +
-      '<span>'+dq+'</span>' +
-      '<span>'+sj+'</span>' +
-      '<span>'+ts+'条'+'</span>' +
-      '<span class="icon-img">' +
-      '<span><img src="../../img/dealer/icon_eye_close.png" alt=""></span>' +
-      '<span class="remove_item"><img src="../../img/dealer/icon_delete.png" alt=""></span>' +
-      '</span>\n' +
-      '</div>';
+    var cx = $('.modal-body2').find('.date-select').eq(3).find('.select-text').html();
+    var ts = $('.modal-body2').find('.border-text').eq(0).find('input').val();
+      var ts1 = $('.modal-body2').find('.border-text').eq(1).find('input').val();
+      var html = '';
+    if (cx == null){
+        html = '<div class="item">' +
+            '<span>'+pp+'</span>' +
+            '<span>'+dq+'</span>' +
+            '<span>'+sj+'</span>' +
+            '<span>'+ts+'条'+'</span>' +
+            '<span class="icon-img">' +
+            '<span><img src="../../img/dealer/icon_eye_close.png" alt=""></span>' +
+            '<span class="remove_item"><img src="../../img/dealer/icon_delete.png" alt=""></span>' +
+            '</span>\n' +
+            '</div>';
+    }else{
+        html = '<div class="item">' +
+            '<span>'+pp+'</span>' +
+            '<span>'+dq+'</span>' +
+            '<span>'+sj+'</span>' +
+            '<span>'+cx+'</span>' +
+            '<span>'+ts+'-'+ts1+'万</span>' +
+            '<span class="icon-img">' +
+            '<span><img src="../../img/dealer/icon_eye_close.png" alt=""></span>' +
+            '<span class="remove_item"><img src="../../img/dealer/icon_delete.png" alt=""></span>' +
+            '</span>\n' +
+            '</div>';
+    }
+
     return html;
   }
 
