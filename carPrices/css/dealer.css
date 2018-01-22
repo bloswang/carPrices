@@ -325,6 +325,9 @@ width: 102px!important;
     margin-right: 40px;
     cursor: pointer;
 }
+.contents-list .item span.item-content:hover{
+    color: #0066ff;
+}
 .contents-list .item span.item-content>select{
     left: -5px;
     font-size: 12px;

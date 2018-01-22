@@ -55,7 +55,9 @@
                         </label>
                     </div>
                     <div class="notUp_item">
-                        <p class="notUp_count">未达标10家</p>
+                        <a href="releaseRank.html" target="iframe_right">
+                            <p class="notUp_count">未达标10家</p>
+                        </a>
                         <ul class="notUp_list">
                             <li>
                                 <a href="notUpItem.html" target="iframe_right">
@@ -151,10 +153,6 @@
                                 <div>车型5</div>
                             </div>
                         </div>
-
-
-
-
                     </div>
                     <div class="modal-footer">
                         <span class="masketerBtn full-width">确定</span>
@@ -357,6 +355,7 @@
             option1.tooltip.formatter = '点击进入该省<br/>{b}';
         }
         option1.series[0].mapType = mt;
+        option1.series[1].mapType = mt;
         option1.title.subtext = mt + ' （点击切换）';
         china_chart.setOption(option1, true);
     });
@@ -367,10 +366,9 @@
         },
         tooltip : {
             trigger: 'item',
-            formatter: '点击进入该省<br/>{b}'
         },
         legend: {
-            data:['发布量']
+            data:['发布量','不达标']
         },
         dataRange: {
             min: 0,
@@ -397,7 +395,7 @@
                 },
                 data:[
                     // 23个省
-                    {name:'广东',value:Math.round(Math.random()*1000)},
+                    {name:'广东',value:Math.round(200)},
                     {name:'青海',value:Math.round(Math.random()*1000)},
                     {name:'四川',value:Math.round(Math.random()*1000)},
                     {name:'海南',value:Math.round(Math.random()*1000)},
@@ -797,6 +795,30 @@
                     {name: '定安县',value: Math.round(Math.random()*1000)},
                     {name: '保亭黎族苗族自治县',value: Math.round(Math.random()*1000)},
                     {name: '五指山市',value: Math.round(Math.random()*1000)}
+                ]
+            },
+            {
+                name: '不达标',
+                type: 'map',
+                mapType: 'china',
+                selectedMode : 'single',
+                itemStyle:{
+                    normal:{
+                        label:{
+                            show:true
+                        },
+                        borderColor: 'white',
+                        borderWidth:2,
+                    },
+                    emphasis:{label:{show:true}},
+                },
+                data:[
+                    // 23个省
+                    {name:'广东',value:Math.round(800)},
+                    {name:'青海',value:Math.round(Math.random()*1000)},
+                    {name:'四川',value:Math.round(Math.random()*1000)},
+                    {name:'海南',value:Math.round(Math.random()*1000)},
+                    {name:'陕西',value:Math.round(Math.random()*1000)},
                 ]
             }
         ]

@@ -2,7 +2,10 @@ $(function () {
 
   /*头部的选项点击事件*/
   $('.contents-list .item .item-content').on('click',function () {
-    $this.addClass('blue-text').siblings().removeClass('blue-text')
+    $(this).addClass('blue-text').siblings().removeClass('blue-text')
+      if(!$('.contents-list .item').eq(2).find('.item-content').eq(-1).hasClass('blue-text')){
+          $('.contents-list .item').eq(2).find('.item-content').eq(-1).find('input').val('')
+      }
   });
 
   /*下拉框显示*/

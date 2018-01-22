@@ -15,6 +15,7 @@
     <script src="../../assets/bootstrap-select/bootstrap-select.min.js"></script>
     <script src="../../js/public.js"></script>
     <script src="../../js/pager.js"></script>
+    <script src="../../assets/laydate/laydate.js"></script>
     <script>
         $(function () {
             Page({
@@ -24,6 +25,10 @@
                 callback:function(n){	//回调函数
                     console.log(n);
                 }
+            });
+            //执行一个laydate实例
+            laydate.render({
+                elem: '#test1' //指定元素
             });
         });
 
@@ -115,7 +120,10 @@
                 <span class="item-content">近一周</span>
                 <span class="item-content">近一月</span>
                 <span class="item-content">近一年</span>
-                <span class="item-content">自定义</span>
+                <span class="item-content">
+                    <input  type="text" class="demo-input" placeholder="自定义时间" id="test1">
+                </span>
+
             </div>
         </div>
         <div class="message-list">
