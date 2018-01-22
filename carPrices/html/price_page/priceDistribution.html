@@ -352,7 +352,7 @@
                         <h4 class="modal-title text-center">预警设置</h4>
                     </div>
                     <div class="modal-body modal-body2">
-                        <div class="date-select mb15  mr20 with120">
+                        <div class="date-select mb15  mr20 with102">
                             <div class="select-show-box">
                                 <span class="select-text">选择品牌</span>
                                 <span>
@@ -368,9 +368,9 @@
                             </div>
                         </div>
 
-                        <div class="date-select mb15  mr20 with120">
+                        <div class="date-select mb15  mr20 with102">
                             <div class="select-show-box">
-                                <span class="select-text">选择区域</span>
+                                <span class="select-text">选择车系</span>
                                 <span>
                                     <img src="../../img/dealer/date_select_arrow.png" alt="">
                                 </span>
@@ -386,9 +386,9 @@
 
 
 
-                        <div class="date-select mb15  mr20 with120">
+                        <div class="date-select mb15  mr20 with102">
                             <div class="select-show-box">
-                                <span class="select-text">选择时间</span>
+                                <span class="select-text">选择车型</span>
                                 <span>
                                     <img src="../../img/dealer/date_select_arrow.png" alt="">
                                 </span>
@@ -402,14 +402,29 @@
                             </div>
                         </div>
 
+                        <div class="date-select mb15  mr20 with102">
+                            <div class="select-show-box">
+                                <span class="select-text">选择省/市</span>
+                                <span>
+                                    <img src="../../img/dealer/date_select_arrow.png" alt="">
+                                </span>
+                            </div>
+                            <div class="select-hidden-box">
+                                <div>车型1</div>
+                                <div>车型2</div>
+                                <div>车型3</div>
+                                <div>车型4</div>
+                                <div>车型5</div>
+                            </div>
+                        </div>
 
 
                         <div class="range-box">
-                    <span class="border-text ">
-                        <input type="text" value="预警线">
+                    <span class="border-text width60">
+                        <input type="text" onblur="this.value=this.value.replace(/\D/g,'')" placeholder="预警线">
                     </span>
                         </div>
-                        <span class="border-text" style="border: none">条</span>
+                        <span class="border-text width60" style="border: none">条</span>
                         <span class="addBtn float-right">新增</span>
 
                         <div class="warning-modal">
