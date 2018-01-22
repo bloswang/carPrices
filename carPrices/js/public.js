@@ -38,44 +38,24 @@ $(function () {
   });
   
   
-  function returnItem () {
-    var pp = $('.modal-body2').find('.date-select').eq(0).find('.select-text').html();
-    var dq = $('.modal-body2').find('.date-select').eq(1).find('.select-text').html();
-    var sj = $('.modal-body2').find('.date-select').eq(2).find('.select-text').html();
-    var cx = $('.modal-body2').find('.date-select').eq(3).find('.select-text').html();
-    var ts = $('.modal-body2').find('.border-text').eq(0).find('input').val();
-      var ts1 = $('.modal-body2').find('.border-text').eq(1).find('input').val();
-      var html = '';
-    if (cx == null){
-        html = '<div class="item">' +
-            '<span>'+pp+'</span>' +
-            '<span>'+dq+'</span>' +
-            '<span>'+sj+'</span>' +
-            '<span>'+ts+'条'+'</span>' +
-            '<span class="icon-img">' +
-            '<span><img src="../../img/dealer/icon_eye_close.png" alt=""></span>' +
-            '<span class="remove_item"><img src="../../img/dealer/icon_delete.png" alt=""></span>' +
-            '</span>\n' +
-            '</div>';
-    }else{
-        html = '<div class="item">' +
-            '<span>'+pp+'</span>' +
-            '<span>'+dq+'</span>' +
-            '<span>'+sj+'</span>' +
-            '<span>'+cx+'</span>' +
-            '<span>'+ts+'-'+ts1+'万</span>' +
-            '<span class="icon-img">' +
-            '<span><img src="../../img/dealer/icon_eye_close.png" alt=""></span>' +
-            '<span class="remove_item"><img src="../../img/dealer/icon_delete.png" alt=""></span>' +
-            '</span>\n' +
-            '</div>';
-    }
+  /*弹出框的确定按钮*/
+  $('.modal-footer .masketerBtn').on('click',function () {
+      $(this).parents('.modal').hide();
+      $('.modal-backdrop').hide();
 
-    return html;
-  }
+  });
+
+  //对弹窗的预警条数的input添加验证
+
 
  
   $('.addBtn').on('click',function(){
+    var itemCount = $('.warning-modal .item').length;
+    if(itemCount >= 5){
+      alert('添加已答上限');
+      return false;
+    }
+
     var html  = returnItem();
     $('.warning-modal').append(html);
   })
@@ -87,4 +67,77 @@ $(function () {
 
 
 
-})
+});
+
+/*返回弹出框的一个item代码片段*/
+function returnItem () {
+  //select的值
+  var sel1 =  $('.modal-body2').find('.date-select').eq(0).find('.select-text').html();
+  var sel2 =  $('.modal-body2').find('.date-select').eq(1).find('.select-text').html();//或者是省市
+  var sel3 =  $('.modal-body2').find('.date-select').eq(2).find('.select-text').html();//或者是周期
+  var sel4 =  $('.modal-body2').find('.date-select').eq(3).find('.select-text').html();
+
+  //文字框的值
+  var input1 = $('.modal-body2').find('.border-text').eq(0).find('input').val();
+  var input2 = $('.modal-body2').find('.border-text').eq(1).find('input').val();
+
+  var htmldata = '';
+  if(sel4 != null){
+    if(sel1 == '选择品牌' || sel2 == '选择车系' || sel3 == '选择车型' || sel4 == '选择省/市'){
+      alert('请完善预警信息');
+      return false;
+    }
+    if(input2 != null){
+      if(input1>= input2){
+        alert('请输入合理价格区间');
+        return false;
+      }
+      htmldata = '<div class="item">' +
+        '<span>'+sel1+'</span>' +
+        '<span>'+sel2+'</span>' +
+        '<span>'+sel3+'</span>' +
+        '<span>'+sel4+'</span>' +
+        '<span>'+input1+'-'+input2+'万</span>'
+    }else {
+      if(input1 == 0){
+        alert('请属于大于0的预警条数');
+        return false;
+      }
+      if(input1 == '预警线'){
+        alert('请输入合理的预警条数(非负数)')
+      }
+      htmldata = '<div class="item">' +
+        '<span>'+sel1+'</span>' +
+        '<span>'+sel2+'</span>' +
+        '<span>'+sel3+'</span>' +
+        '<span>'+sel4+'</span>' +
+        '<span>'+input1+'条</span>'
+    }
+
+  }else {
+    if(sel1 == '选择品牌' || sel2 == '选择省/市' || sel3 == '选择预警周期'){
+      alert('请完善预警条件');
+      return false;
+    }
+    if(input1 == 0){
+      alert('请属于大于0的预警条数');
+      return false;
+    }
+    if(input1 == '预警线'){
+      alert('请输入合理的预警条数(非负数)')
+    }
+    htmldata = '<div class="item">' +
+      '<span>'+sel1+'</span>' +
+      '<span>'+sel2+'</span>' +
+      '<span>'+sel3+'</span>' +
+      '<span>'+input1+'条</span>'
+  }
+  var elesHtml = '<span class="icon-img">' +
+    '<span><img src="../../img/dealer/icon_eye_close.png" alt=""></span>' +
+    '<span class="remove_item"><img src="../../img/dealer/icon_delete.png" alt=""></span>' +
+    '</span>\n' +
+    '</div>';
+
+  var html = htmldata + elesHtml;
+  return html;
+}
