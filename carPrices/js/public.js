@@ -39,12 +39,15 @@ $(function () {
   
   
   /*弹出框的确定按钮*/
-  $('.modal-footer .masketerBtn').on('click',function () {
+/*  $('.modal-footer .masketerBtn').on('click',function () {
       $(this).parents('.modal').hide();
       $('.modal-backdrop').hide();
 
-  });
+  });*/
 
+    $('.modal').on('show.bs.modal', function () {
+    $('.select-hidden-box,.select-hidden-box2').hide();
+})
   //对弹窗的预警条数的input添加验证
 
 

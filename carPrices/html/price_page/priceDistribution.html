@@ -75,38 +75,6 @@
             margin: 0 5px;
             font-size: 12px;
         }
-        /*top10排序的央视，三角标*/
-        .up{
-            display: inline-block;
-            width:0;
-            height:0;
-            border-left:6px solid transparent;
-            border-right:6px solid transparent;
-            border-bottom:6px solid #ccc;
-            position: absolute;
-            top:20%;
-            left:40%;
-        }
-        .down{
-            display: inline-block;
-            width:0;
-            height:0;
-            border-left:6px solid transparent;
-            border-right:6px solid transparent;
-            border-top:6px solid #ccc;
-            position: absolute;
-            bottom:20%;
-            left:40%;
-        }
-        .up_color{
-            border-bottom:6px solid #8eacd3;
-        }
-        .down_color{
-            border-top:6px solid #8eacd3;
-        }
-        .px_F{
-            position: relative;
-        }
     </style>
 </head>
 <body>
@@ -140,13 +108,13 @@
                         <p class="notUp_count">今日预警20条</p>
                         <ul class="notUp_list">
                             <li>
-                                <a href="../dealer_page/discounts_detail.html" target="iframe_right">
+                                <a href="discounts_detail.html" target="iframe_right">
                                     <span class="MR50">奥迪中关村店</span>
                                     <span >2万</span>
                                 </a>
                             </li>
                             <li>
-                                <a href="../dealer_page/discounts_detail.html" target="iframe_right">
+                                <a href="discounts_detail.html" target="iframe_right">
                                     <span  class="MR50">奥迪中关村店</span>
                                     <span >2万</span>
                                 </a>
@@ -165,282 +133,17 @@
             </div>
 
             <div class="center_box three">
-                <p class="px_F">
-                    <span class="topText">优惠力度TOP10</span>
-                    <span class="up px "></span>
-                    <span class="down px down_color"></span>
-                    <span class="carName">(北京哈佛H6经典款)</span>
-                    <span class="moreText">
-                            <a href="#">更多</a>
-                    </span>
-                </p>
                 <p>
-                    <span class="smallTExt">近一周数据（万元）</span>
+                    <span class="topText">价格对比</span>
                 </p>
-                <div id="TOP10" >
+                <div id="chart1" style="height: 30%;">
+
+                </div>
+                <div id="chart2" style="height: 30%;">
 
                 </div>
             </div>
         </div>
-        <!--弹窗-->
-        <div class="modal fade" id="chooseCar" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content" style="width: 540px">
-                    <div class="modal-header">
-                        <!--<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>-->
-                        <h4 class="modal-title text-center" >选择车品</h4>
-                    </div>
-                    <div class="modal-body">
-
-                        <div class="date-select mb15 mr20 with145">
-                            <div class="select-show-box">
-                                <span class="select-text">选择国别</span>
-                                <span>
-                                    <img src="../../img/dealer/date_select_arrow.png" alt="">
-                                </span>
-                            </div>
-                            <div class="select-hidden-box">
-                                <div>车型1</div>
-                                <div>车型2</div>
-                                <div>车型3</div>
-                                <div>车型4</div>
-                                <div>车型5</div>
-                            </div>
-                        </div>
-
-                        <div class="date-select mb15 mr20 with145">
-                            <div class="select-show-box">
-                                <span class="select-text">选择级别</span>
-                                <span>
-                                    <img src="../../img/dealer/date_select_arrow.png" alt="">
-                                </span>
-                            </div>
-                            <div class="select-hidden-box">
-                                <div>车型1</div>
-                                <div>车型2</div>
-                                <div>车型3</div>
-                                <div>车型4</div>
-                                <div>车型5</div>
-                            </div>
-                        </div>
-
-                        <div class="date-select mb15  with145">
-                            <div class="select-show-box">
-                                <span class="select-text">选择类型</span>
-                                <span>
-                                    <img src="../../img/dealer/date_select_arrow.png" alt="">
-                                </span>
-                            </div>
-                            <div class="select-hidden-box">
-                                <div>车型1</div>
-                                <div>车型2</div>
-                                <div>车型3</div>
-                                <div>车型4</div>
-                                <div>车型5</div>
-                            </div>
-                        </div>
-
-                        <div class="date-select mb15 mr20 with145">
-                            <div class="select-show-box">
-                                <span class="select-text">选择品牌</span>
-                                <span>
-                                    <img src="../../img/dealer/date_select_arrow.png" alt="">
-                                </span>
-                            </div>
-                            <div class="select-hidden-box">
-                                <div>车型1</div>
-                                <div>车型2</div>
-                                <div>车型3</div>
-                                <div>车型4</div>
-                                <div>车型5</div>
-                            </div>
-                        </div>
-
-                        <div class="date-select mb15 mr20 with145">
-                            <div class="select-show-box">
-                                <span class="select-text">选择车系</span>
-                                <span>
-                                    <img src="../../img/dealer/date_select_arrow.png" alt="">
-                                </span>
-                            </div>
-                            <div class="select-hidden-box">
-                                <div>车型1</div>
-                                <div>车型2</div>
-                                <div>车型3</div>
-                                <div>车型4</div>
-                                <div>车型5</div>
-                            </div>
-                        </div>
-
-                        <div class="date-select mb15 select-car-type  with145">
-                            <div class="select-show-box">
-                                <span class="select-text">选择车型</span>
-                                <span>
-                                    <img src="../../img/dealer/date_select_arrow.png" alt="">
-                                </span>
-                            </div>
-                            <div class="select-hidden-box">
-                                <div>车型1</div>
-                                <div>车型2</div>
-                                <div>车型3</div>
-                                <div>车型4</div>
-                                <div>车型5</div>
-                            </div>
-                        </div>
-
-                        <div class="date-select mb15 mr20 with145">
-                            <div class="select-show-box">
-                                <span class="select-text">选择日期</span>
-                                <span>
-                                    <img src="../../img/dealer/date_select_arrow.png" alt="">
-                                </span>
-                            </div>
-                            <div class="select-hidden-box">
-                                 <div>近一周</div>
-                                 <div>近一月</div>
-                                 <div>近三月</div>
-                                 <div>近一年</div>
-                                 <div>自定义</div>
-                            </div>
-                            <div class="select-hidden-box2">
-                                <select class="select-year" name="" >
-                                    <option value="">请选择年份</option>
-                                    <option value="">1999年</option>
-                                    <option value="">1999年</option>
-                                    <option value="">1999年</option>
-                                    <option value="">1999年</option>
-                                    <option value="">1999年</option>
-                                    <option value="">1999年</option>
-                                    <option value="">1999年</option>
-                                    <option value="">1999年</option>
-                                    <option value="">1999年</option>
-                                </select>
-                                <select class="select-month " name="" >
-                                    <option value="">请选择月份</option>
-                                    <option value="">1月</option>
-                                    <option value="">2月</option>
-                                    <option value="">3月</option>
-                                    <option value="">4月</option>
-                                    <option value="">5月</option>
-                                    <option value="">6月</option>
-                                    <option value="">7月</option>
-                                    <option value="">8月</option>
-                                    <option value="">9月</option>
-                                    <option value="">10月</option>
-                                    <option value="">11月</option>
-                                    <option value="">12月</option>
-                                </select>
-                                <span class="btn btn-default date-btn">确定</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="modal-footer">
-                        <span class="max3">
-                            最多添加三个车型
-                        </span>
-                        <span class="masketerBtn" id="yes" style="width: 105px">确定</span>
-                    </div>
-                </div><!-- /.modal-content -->
-            </div><!-- /.modal -->
-        </div>
-        <!--预警设置模态框 start-->
-        <div class="modal fade" id="warningSet" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content middle-width">
-                    <div class="modal-header">
-                        <!--<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>-->
-                        <h4 class="modal-title text-center">预警设置</h4>
-                    </div>
-                    <div class="modal-body modal-body2">
-                        <div class="date-select mb15  mr20 with102">
-                            <div class="select-show-box">
-                                <span class="select-text">选择品牌</span>
-                                <span>
-                                    <img  src="../../img/dealer/date_select_arrow.png" alt="">
-                                </span>
-                            </div>
-                            <div class="select-hidden-box">
-                                <div>车型1</div>
-                                <div>车型2</div>
-                                <div>车型3</div>
-                                <div>车型4</div>
-                                <div>车型5</div>
-                            </div>
-                        </div>
-
-                        <div class="date-select mb15  mr20 with102">
-                            <div class="select-show-box">
-                                <span class="select-text">选择车系</span>
-                                <span>
-                                    <img src="../../img/dealer/date_select_arrow.png" alt="">
-                                </span>
-                            </div>
-                            <div class="select-hidden-box">
-                                <div>车型1</div>
-                                <div>车型2</div>
-                                <div>车型3</div>
-                                <div>车型4</div>
-                                <div>车型5</div>
-                            </div>
-                        </div>
-
-
-
-                        <div class="date-select mb15  mr20 with102">
-                            <div class="select-show-box">
-                                <span class="select-text">选择车型</span>
-                                <span>
-                                    <img src="../../img/dealer/date_select_arrow.png" alt="">
-                                </span>
-                            </div>
-                            <div class="select-hidden-box">
-                                <div>车型1</div>
-                                <div>车型2</div>
-                                <div>车型3</div>
-                                <div>车型4</div>
-                                <div>车型5</div>
-                            </div>
-                        </div>
-
-                        <div class="date-select mb15  mr20 with102">
-                            <div class="select-show-box">
-                                <span class="select-text">选择省/市</span>
-                                <span>
-                                    <img src="../../img/dealer/date_select_arrow.png" alt="">
-                                </span>
-                            </div>
-                            <div class="select-hidden-box">
-                                <div>车型1</div>
-                                <div>车型2</div>
-                                <div>车型3</div>
-                                <div>车型4</div>
-                                <div>车型5</div>
-                            </div>
-                        </div>
-
-
-                        <div class="range-box">
-                    <span class="border-text width60">
-                        <input type="text" onblur="this.value=this.value.replace(/\D/g,'')" placeholder="预警线">
-                    </span>
-                        </div>
-                        <span class="border-text width60" style="border: none">条</span>
-                        <span class="addBtn float-right">新增</span>
-
-                        <div class="warning-modal">
-
-                        </div>
-
-
-                    </div>
-                    <div class="modal-footer">
-                        <span class="masketerBtn full-width" style="width: 102px">确定</span>
-                    </div>
-                </div><!-- /.modal-content -->
-            </div><!-- /.modal -->
-        </div>
-        <!--预警设置模态框 end-->
-
     </div>
     <div class="content_bottom">
         <p>看车型价格走势</p>
@@ -589,6 +292,264 @@
 
         <div id="price_go" style="height: 400px; width: 100%"></div>
     </div>
+    <!--弹窗-->
+    <div class="modal fade" id="chooseCar" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content" style="width: 540px">
+                <div class="modal-header">
+                    <!--<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>-->
+                    <h4 class="modal-title text-center" >选择车品</h4>
+                </div>
+                <div class="modal-body">
+
+                    <div class="date-select mb15 mr20 with145">
+                        <div class="select-show-box">
+                            <span class="select-text">选择国别</span>
+                            <span>
+                                    <img src="../../img/dealer/date_select_arrow.png" alt="">
+                                </span>
+                        </div>
+                        <div class="select-hidden-box">
+                            <div>车型1</div>
+                            <div>车型2</div>
+                            <div>车型3</div>
+                            <div>车型4</div>
+                            <div>车型5</div>
+                        </div>
+                    </div>
+
+                    <div class="date-select mb15 mr20 with145">
+                        <div class="select-show-box">
+                            <span class="select-text">选择级别</span>
+                            <span>
+                                    <img src="../../img/dealer/date_select_arrow.png" alt="">
+                                </span>
+                        </div>
+                        <div class="select-hidden-box">
+                            <div>车型1</div>
+                            <div>车型2</div>
+                            <div>车型3</div>
+                            <div>车型4</div>
+                            <div>车型5</div>
+                        </div>
+                    </div>
+
+                    <div class="date-select mb15  with145">
+                        <div class="select-show-box">
+                            <span class="select-text">选择类型</span>
+                            <span>
+                                    <img src="../../img/dealer/date_select_arrow.png" alt="">
+                                </span>
+                        </div>
+                        <div class="select-hidden-box">
+                            <div>车型1</div>
+                            <div>车型2</div>
+                            <div>车型3</div>
+                            <div>车型4</div>
+                            <div>车型5</div>
+                        </div>
+                    </div>
+
+                    <div class="date-select mb15 mr20 with145">
+                        <div class="select-show-box">
+                            <span class="select-text">选择品牌</span>
+                            <span>
+                                    <img src="../../img/dealer/date_select_arrow.png" alt="">
+                                </span>
+                        </div>
+                        <div class="select-hidden-box">
+                            <div>车型1</div>
+                            <div>车型2</div>
+                            <div>车型3</div>
+                            <div>车型4</div>
+                            <div>车型5</div>
+                        </div>
+                    </div>
+
+                    <div class="date-select mb15 mr20 with145">
+                        <div class="select-show-box">
+                            <span class="select-text">选择车系</span>
+                            <span>
+                                    <img src="../../img/dealer/date_select_arrow.png" alt="">
+                                </span>
+                        </div>
+                        <div class="select-hidden-box">
+                            <div>车型1</div>
+                            <div>车型2</div>
+                            <div>车型3</div>
+                            <div>车型4</div>
+                            <div>车型5</div>
+                        </div>
+                    </div>
+
+                    <div class="date-select mb15 select-car-type  with145">
+                        <div class="select-show-box">
+                            <span class="select-text">选择车型</span>
+                            <span>
+                                    <img src="../../img/dealer/date_select_arrow.png" alt="">
+                                </span>
+                        </div>
+                        <div class="select-hidden-box">
+                            <div>车型1</div>
+                            <div>车型2</div>
+                            <div>车型3</div>
+                            <div>车型4</div>
+                            <div>车型5</div>
+                        </div>
+                    </div>
+
+                    <div class="date-select mb15 mr20 with145">
+                        <div class="select-show-box">
+                            <span class="select-text">选择日期</span>
+                            <span>
+                                    <img src="../../img/dealer/date_select_arrow.png" alt="">
+                                </span>
+                        </div>
+                        <div class="select-hidden-box">
+                            <div>近一周</div>
+                            <div>近一月</div>
+                            <div>近三月</div>
+                            <div>近一年</div>
+                            <div>自定义</div>
+                        </div>
+                        <div class="select-hidden-box2">
+                            <select class="select-year" name="" >
+                                <option value="">请选择年份</option>
+                                <option value="">1999年</option>
+                                <option value="">1999年</option>
+                                <option value="">1999年</option>
+                                <option value="">1999年</option>
+                                <option value="">1999年</option>
+                                <option value="">1999年</option>
+                                <option value="">1999年</option>
+                                <option value="">1999年</option>
+                                <option value="">1999年</option>
+                            </select>
+                            <select class="select-month " name="" >
+                                <option value="">请选择月份</option>
+                                <option value="">1月</option>
+                                <option value="">2月</option>
+                                <option value="">3月</option>
+                                <option value="">4月</option>
+                                <option value="">5月</option>
+                                <option value="">6月</option>
+                                <option value="">7月</option>
+                                <option value="">8月</option>
+                                <option value="">9月</option>
+                                <option value="">10月</option>
+                                <option value="">11月</option>
+                                <option value="">12月</option>
+                            </select>
+                            <span class="btn btn-default date-btn">确定</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                        <span class="max3">
+                            最多添加三个车型
+                        </span>
+                    <span class="masketerBtn" id="yes" data-dismiss="modal" style="width: 105px">确定</span>
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal -->
+    </div>
+    <!--预警设置模态框 start-->
+    <div class="modal fade" id="warningSet" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content middle-width">
+                <div class="modal-header">
+                    <!--<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>-->
+                    <h4 class="modal-title text-center">预警设置</h4>
+                </div>
+                <div class="modal-body modal-body2">
+                    <div class="date-select mb15  mr20 with102">
+                        <div class="select-show-box">
+                            <span class="select-text">选择品牌</span>
+                            <span>
+                                    <img  src="../../img/dealer/date_select_arrow.png" alt="">
+                                </span>
+                        </div>
+                        <div class="select-hidden-box">
+                            <div>车型1</div>
+                            <div>车型2</div>
+                            <div>车型3</div>
+                            <div>车型4</div>
+                            <div>车型5</div>
+                        </div>
+                    </div>
+
+                    <div class="date-select mb15  mr20 with102">
+                        <div class="select-show-box">
+                            <span class="select-text">选择车系</span>
+                            <span>
+                                    <img src="../../img/dealer/date_select_arrow.png" alt="">
+                                </span>
+                        </div>
+                        <div class="select-hidden-box">
+                            <div>车型1</div>
+                            <div>车型2</div>
+                            <div>车型3</div>
+                            <div>车型4</div>
+                            <div>车型5</div>
+                        </div>
+                    </div>
+
+
+
+                    <div class="date-select mb15  mr20 with102">
+                        <div class="select-show-box">
+                            <span class="select-text">选择车型</span>
+                            <span>
+                                    <img src="../../img/dealer/date_select_arrow.png" alt="">
+                                </span>
+                        </div>
+                        <div class="select-hidden-box">
+                            <div>车型1</div>
+                            <div>车型2</div>
+                            <div>车型3</div>
+                            <div>车型4</div>
+                            <div>车型5</div>
+                        </div>
+                    </div>
+
+                    <div class="date-select mb15  mr20 with102">
+                        <div class="select-show-box">
+                            <span class="select-text">选择省/市</span>
+                            <span>
+                                    <img src="../../img/dealer/date_select_arrow.png" alt="">
+                                </span>
+                        </div>
+                        <div class="select-hidden-box">
+                            <div>车型1</div>
+                            <div>车型2</div>
+                            <div>车型3</div>
+                            <div>车型4</div>
+                            <div>车型5</div>
+                        </div>
+                    </div>
+
+
+                    <div class="range-box">
+                    <span class="border-text width60">
+                        <input type="text" onblur="this.value=this.value.replace(/\D/g,'')" placeholder="预警线">
+                    </span>
+                    </div>
+                    <span class="border-text width60" style="border: none">条</span>
+                    <span class="addBtn float-right">新增</span>
+
+                    <div class="warning-modal">
+
+                    </div>
+
+
+                </div>
+                <div class="modal-footer">
+                    <span class="masketerBtn full-width" data-dismiss="modal" style="width: 102px">确定</span>
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal -->
+    </div>
+    <!--预警设置模态框 end-->
     <div class="footer">
         <p>Copyright 2015-2030 huishu All Rights Reserved. </p>
         <p>慧数汽车   版权所有</p>
@@ -670,12 +631,15 @@ $(function () {
     }
   });
 
-    //TOP10
-    var dataValue = [ 11003, 11111, 11260, 11820, 23489, 29034, 104970, 131744, 155666, 230230]
-    var dataName = ['深创投','顺为资本','晨星资本','阿里巴巴','IDG资本','真格基金','经纬腾讯','腾讯','创新工场', '红杉资本']
-    var top10_fn  = function(dataName,dataValue){
-        var TOP10 = echarts.init(document.getElementById('TOP10'));
+    //chart1
+    var dataName = ['经销商','最高','最低']
+    var dataValue = [ 11003, 11111, 11260]
+    var chart1_fn  = function(dataName,dataValue){
+        var chart1 = echarts.init(document.getElementById('chart1'));
         var option = {
+            title:{
+                subtext : '北京 哈佛H6经典款',
+            },
             tooltip: {
                 trigger: 'axis',
                 axisPointer: {
@@ -685,10 +649,10 @@ $(function () {
             grid: {
                 zlevel: 0,
                 z: 0,
-                x: 80,
-                y: 0,
-                x2: 20,
-                y2: 60,
+                x: 50,
+                y: 50,
+                x2: 10,
+                y2: 5,
                 borderWidth: 0 ,
             },
             xAxis: {
@@ -715,16 +679,18 @@ $(function () {
             },
             series: [
                 {
-                    name:'发布量',
+                    name:'哈弗H6',
                     type: 'bar',
-                    barWidth:15,
+                    barWidth:10,
                     itemStyle:{
                         normal:{
-                            color:'#8eacd3',
-                            barBorderRadius: 5
-                        },
-                        emphasis: {
-                            barBorderRadius: 5
+                            color: function(params) {
+                                // build a color map as your need.
+                                var colorList = [
+                                    '#3CA1FF','#00E3E6','#31EAB8',
+                                ];
+                                return colorList[params.dataIndex]
+                            },
                         },
                     },
                     label:{
@@ -734,30 +700,88 @@ $(function () {
                         }
                     },
                     data:dataValue
-
                 },
 
             ]
         };
-        TOP10.setOption(option);
-        TOP10.on('click',function(params){
-            /*alert(params.name)*/
-            window.location.href = './notUpItem.html';
-        })
+        chart1.setOption(option);
     }
-    top10_fn(dataName,dataValue)
+    chart1_fn(dataName,dataValue)
 
-    /*TOP10排序切换按钮*/
-    $('.up').on('click',function(){
-        $(this).removeClass('up_color')
-        $('.down').addClass('down_color')
-        top10_fn(dataName.reverse(),dataValue.reverse())
-    })
-    $('.down').on('click',function(){
-        $(this).removeClass('down_color')
-        $('.up').addClass('up_color')
-        top10_fn(dataName.reverse(),dataValue.reverse())
-    })
+    var chart2_fn  = function(dataName,dataValue){
+        var chart2 = echarts.init(document.getElementById('chart2'));
+        var option = {
+            title:{
+                subtext : '北京 长安cs75经典款',
+            },
+            tooltip: {
+                trigger: 'axis',
+                axisPointer: {
+                    type: 'shadow'
+                }
+            },
+            grid: {
+                zlevel: 0,
+                z: 0,
+                x: 50,
+                y: 50,
+                x2: 10,
+                y2: 5,
+                borderWidth: 0 ,
+            },
+            xAxis: {
+                type: 'value',
+                show: false,
+                boundaryGap: [0, 0.01],
+                splitLine:{
+                    show:false,
+                },
+            },
+            yAxis: {
+                type: 'category',
+                borderWidth: 0 ,
+                axisTick:{
+                    show:false
+                },
+                axisLine:{
+                    show:false
+                },
+                splitLine:{
+                    show:false,
+                },
+                data:dataName
+            },
+            series: [
+                {
+                    name:'哈弗H6',
+                    type: 'bar',
+                    barWidth:10,
+                    itemStyle:{
+                        normal:{
+                            color: function(params) {
+                                // build a color map as your need.
+                                var colorList = [
+                                    '#3CA1FF','#00E3E6','#31EAB8',
+                                ];
+                                return colorList[params.dataIndex]
+                            },
+                        },
+                    },
+                    label:{
+                        normal:{
+                            show: true,
+                            position: 'right'
+                        }
+                    },
+                    data:dataValue
+                },
+
+            ]
+        };
+        chart2.setOption(option);
+    }
+    chart2_fn(dataName,dataValue)
+
 
     var china_chart = echarts.init(document.getElementById('china_chart'));
     var curIndx = 0;
@@ -831,7 +855,7 @@ $(function () {
                 selectedMode : 'single',
                 itemStyle:{
                     normal:{
-                        color:'#03FDF6',
+                        color:'yellow',
                         label:{
                             show:true
                         },
