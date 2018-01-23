@@ -38,12 +38,7 @@ $(function () {
   });
   
   
-  /*弹出框的确定按钮*/
-/*  $('.modal-footer .masketerBtn').on('click',function () {
-      $(this).parents('.modal').hide();
-      $('.modal-backdrop').hide();
 
-  });*/
 
     $('.modal').on('show.bs.modal', function () {
     $('.select-hidden-box,.select-hidden-box2').hide();
@@ -62,9 +57,22 @@ $(function () {
     var html  = returnItem();
     $('.warning-modal').append(html);
   })
-
+  var del_item ;
   $('.warning-modal').on('click','.remove_item',function(){
-    $(this).closest('div').remove();
+      $('.del-content').show();
+      $('.modal .modal-content').hide();
+    del_item = $(this).parents('.item');
+  })
+  $('.del-content .cancel-btn').on('click',function () {
+    $('.del-content').hide();
+    $('.modal .modal-content').show();
+
+
+  })
+  $('.del-content .sure').on('click',function () {
+    $('.del-content').hide();
+    $('.modal .modal-content').show();
+    del_item.remove();
   })
 
 

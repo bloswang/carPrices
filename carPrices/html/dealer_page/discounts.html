@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>优惠力度</title>
     <link rel="stylesheet" href="../../assets/bootstrap-3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="../../assets/bootstrap-select/bootstrap-select.min.css">
     <link rel="stylesheet" href="../../css/public.css">
@@ -90,7 +90,7 @@
                 <div class="notUp">
                     <div class="notUp_item">
                         <a href="discountsRank.html" target="iframe_right">
-                            <p class="notUp_count">今日预警20条</p>
+                            <p class="notUp_count">预警20条</p>
                         </a>
                         <ul class="notUp_list">
                             <li>
@@ -110,6 +110,9 @@
                 </div>
             </div>
             <div class="center_box two">
+                <button class="btn back">
+                    返回
+                </button>
                 <div id="china_chart"></div>
             </div>
             <div class="center_box three">
@@ -119,7 +122,7 @@
                     <span class="down px down_color"></span>
                     <span class="carName">(北京哈佛H6经典款)</span>
                     <span class="moreText">
-                            <a href="#">更多</a>
+                            <a href="discountsRank.html">更多</a>
                     </span>
                 </p>
                 <p>
@@ -308,6 +311,13 @@
                         </div>
                         <span class="addBtn float-right">新增</span>
 
+                        <div class="modal-hint">
+                            <img src="../../img/dealer/hit-icon.png" alt="">
+                            <span class="hint-text">
+                                请设置优惠力度预警区间
+                            </span>
+                        </div>
+
                         <div class="warning-modal">
 
 
@@ -322,6 +332,26 @@
             </div><!-- /.modal -->
         </div>
         <!--预警设置模态框 end-->
+
+
+        <!--确认删除弹窗-->
+        <div class="modal-content del-content middle-width">
+            <div class="modal-header">
+                <!--<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>-->
+                <h4 class="modal-title text-center">确认删除</h4>
+            </div>
+            <div class="modal-body modal-body2">
+                <div class="alert-del">
+                    <img src="../../img/dealer/del_alert.png" alt="">
+                    <p class="alert-del-text">是否删除该条预警信息</p>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <span class="masketerBtn full-width cancel-btn" data-dismiss="modal" style="width: 102px">取消</span>
+                <span class="masketerBtn full-width sure" data-dismiss="modal" style="width: 102px">确定</span>
+            </div>
+        </div>
+        <!--确认删除弹窗-->
     </div>
     <div class="footer">
         <p>Copyright 2015-2030 huishu All Rights Reserved. </p>
@@ -333,8 +363,8 @@
     //TOP10
     var dataValue = [ 11003, 11111, 11260, 11820, 23489, 29034, 104970, 131744, 155666, 230230]
     var dataName = ['深创投','顺为资本','晨星资本','阿里巴巴','IDG资本','真格基金','经纬腾讯','腾讯','创新工场', '红杉资本']
+    var TOP10 = echarts.init(document.getElementById('TOP10'));
     var top10_fn  = function(dataName,dataValue){
-        var TOP10 = echarts.init(document.getElementById('TOP10'));
         var option = {
             tooltip: {
                 trigger: 'axis',
@@ -417,7 +447,12 @@
         $(this).removeClass('down_color')
         $('.up').addClass('up_color')
         top10_fn(dataName.reverse(),dataValue.reverse())
-    })
+    });
+    /*点击跳转*/
+    TOP10.on('click', function (params) {
+      window.location.href = '../price_page/discounts_detail.html';
+    });
+
 
 
     var china_chart = echarts.init(document.getElementById('china_chart'));
@@ -440,7 +475,7 @@
     china_chart.on('mapSelected', function (param){
         var len = mapType.length;
         var mt = mapType[curIndx % len];
-        if (mt == 'china') {
+      if ($('.back').is(':hidden')) {
             // 全国选择时指定到选中的省份
             var selected = param.selected;
             for (var i in selected) {
@@ -455,16 +490,26 @@
                 }
             }
             option1.tooltip.formatter = '点击返回全国<br/>{b}';
-        }
-        else {
-            curIndx = 0;
-            mt = 'china';
-            option1.tooltip.formatter = '点击进入该省<br/>{b}';
-        }
         option1.series[0].mapType = mt;
         option1.title.subtext = mt + ' （点击切换）';
         china_chart.setOption(option1, true);
+        $('.back').show();
+
+      }
+        else {
+        //跳转到列表
+            $('.back').hide();
+            window.location.href = 'discountsRank.html';
+        }
+
     });
+    $('.back').on('click',function () {
+      option1.series[0].mapType = 'china';
+      option1.title.subtext = 'china' + ' （点击切换）';
+      china_chart.setOption(option1, true);
+      $('.back').hide();
+
+    })
     var option1 = {
         title: {
             text : '全国34个省市自治区',

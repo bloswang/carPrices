@@ -36,7 +36,7 @@
             font-size: 12px;
         }
         .table{
-            width: 70%;
+            width: 90%;
             text-align: center;
             margin: 0 auto;
         }
@@ -44,13 +44,60 @@
             text-align: center;
         }
         .img_car{
-            width: 70%;
+            width: 90%;
             text-align: center;
             margin: 30px auto;
         }
         .img_car img{
             width: 100%;
         }
+        .content1{
+            width: 79%;
+            display: inline-block;
+            padding: 10px;
+            border-right: 10px solid #eaeaea;
+
+        }
+        .content1,content2{
+            display: inline-block;
+            vertical-align: top;
+        }
+        .content2{
+            display: inline-block;
+            width: 20%;
+            /*border: 1px solid #000000;*/
+            /*margin: -40px -40px -20px 0;*/
+        }
+        .detail_content{
+            padding: 0;
+        }
+        body,html .detail_content,.content1,.content2{
+            height: 100%;
+        }
+        .content2 p.car_title{
+            font-size: 12px;
+            text-align: left;
+            /*font-weight: 400;*/
+            padding-bottom:20px;
+        }
+        .cut-line{
+            background-color: #eaeaea;
+            height: 10px;
+            margin-left: -10px;
+            margin-right: -25px;
+        }
+        .shop,.activity{
+            padding:18px;
+        }
+        .gary-text{
+            display: inline-block;
+            font-size: 12px;
+            color: #666666;
+            /*padding-top: 18px;*/
+            padding-bottom: 15px;
+            text-decoration: none;
+        }
+
 
     </style>
 </head>
@@ -58,29 +105,30 @@
 <div class="bg">
     <div class="detail_content">
 
-        <a href="promotionList.html" target="iframe_right">
-            <p class="return">
-                &lt;返回
-            </p>
-        </a>
+        <div class="content1">
+            <a href="promotionList.html" target="iframe_right">
+                <p class="return">
+                    &lt;返回
+                </p>
+            </a>
 
-        <p class="car_title has_margin">东仁隆达马自达MX-5限量500台 火热预定中</p>
-        <p class="has_margin car_time">发布时间：2016-03-18</p>
-        <p class="has_margin promotion_time">促销时间：2018年01月01日-2018年02月02日</p>
-        <p class="has_margin car_text">2018年01月01日～2018年01月31日，本店马自达MX-5限量500台，火热预定中，颜色可选，感兴趣的朋友可以到店咨询</p>
-        <div class="table">
-            <table data-toggle="table">
-                <thead style="background: #fafafa;text-align: center">
-                <tr>
-                    <th>车型</th>
-                    <th>厂商指导价</th>
-                    <th>优惠幅度</th>
-                    <th>优惠价</th>
-                    <th>库存情况</th>
-                    <th></th>
-                </tr>
-                </thead>
-                <tbody>
+            <p class="car_title has_margin">东仁隆达马自达MX-5限量500台 火热预定中</p>
+            <p class="has_margin car_time">发布时间：2016-03-18</p>
+            <p class="has_margin promotion_time">促销时间：2018年01月01日-2018年02月02日</p>
+            <p class="has_margin car_text">2018年01月01日～2018年01月31日，本店马自达MX-5限量500台，火热预定中，颜色可选，感兴趣的朋友可以到店咨询</p>
+            <div class="table">
+                <table data-toggle="table">
+                    <thead style="background: #fafafa;text-align: center">
+                    <tr>
+                        <th>车型</th>
+                        <th>厂商指导价</th>
+                        <th>优惠幅度</th>
+                        <th>优惠价</th>
+                        <th>库存情况</th>
+                        <th></th>
+                    </tr>
+                    </thead>
+                    <tbody>
                     <tr>
                         <td>2018款 RF 2.0L 铂钢灰</td>
                         <td>33.90万</td>
@@ -122,11 +170,33 @@
                         </td>
                     </tr>
 
-                </tbody>
-            </table>
+                    </tbody>
+                </table>
+            </div>
+            <div class="img_car">
+                <img src="../../img/car.png" alt="">
+            </div>
         </div>
-        <div class="img_car">
-            <img src="../../img/car.png" alt="">
+        <div class="content2">
+            <div class="shop">
+                <p class="car_title">北京鑫敏恒朝阳店</p>
+                <span class="gary-text">
+                    信息类型:新车到店
+                </span>
+            </div>
+            <div class="cut-line">
+
+            </div>
+            <div class="activity">
+                <p class="car_title">相关活动</p>
+                <a href="#" class="gary-text">马自达CX-4欢迎莅临赏鉴 可试乘试驾</a>
+                <a href="#" class="gary-text">马自达CX-4欢迎莅临赏鉴 可试乘试驾</a>
+                <a href="#" class="gary-text">马自达CX-4欢迎莅临赏鉴 可试乘试驾</a>
+                <a href="#" class="gary-text">马自达CX-4欢迎莅临赏鉴 可试乘试驾</a>
+                <a href="#" class="gary-text">马自达CX-4欢迎莅临赏鉴 可试乘试驾</a>
+                <a href="#" class="gary-text">马自达CX-4欢迎莅临赏鉴 可试乘试驾</a>
+                <a href="#" class="gary-text">马自达CX-4欢迎莅临赏鉴 可试乘试驾</a>
+            </div>
         </div>
     </div>
     <div class="footer">

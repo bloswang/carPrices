@@ -14,7 +14,11 @@
     font-size: 0;
 }
 .modal-dialog{
-    margin: 0 auto;
+    width: auto;
+}
+.modal{
+    top: -60px;
+    left: -160px;
 }
 
 .modal-footer{
@@ -540,3 +544,42 @@ width: 102px!important;
 .popover-content{
     padding: 0;
 }
+
+
+/*预警提示框新增小提示*/
+.modal-hint{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 15px;
+}
+.modal-hint img{
+    margin-right: 5px;
+}
+.modal-hint >span{
+    font-size: 12px;
+    color: #7792bf;
+}
+.cancel-btn{
+    background-color: #e6e6e6;
+    color: #333333;
+    margin-right: 20px;
+}
+.alert-del{
+    margin: 0 auto;
+    text-align: center;
+}
+.alert-del .alert-del-text{
+    font-size: 12px;
+    color: #333333;
+    padding-top: 20px;
+}
+.del-content{
+    display: none;
+    z-index: 10000;
+    position: absolute;
+    top: 120px;
+    margin: 0;
+    left: 150px;
+}
+

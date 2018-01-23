@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>价格监测</title>
     <link rel="stylesheet" href="../../assets/bootstrap-3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="../../assets/bootstrap-select/bootstrap-select.min.css">
     <link rel="stylesheet" href="../../css/public.css">
@@ -105,16 +105,18 @@
                 </div>
                 <div class="notUp">
                     <div class="notUp_item">
-                        <p class="notUp_count">今日预警20条</p>
+                        <p class="notUp_count">
+                            <a class="notUp_count" href="price_monitor.html">预警20条</a>
+                        </p>
                         <ul class="notUp_list">
                             <li>
-                                <a href="discounts_detail.html" target="iframe_right">
+                                <a href="price_monitor.html" target="iframe_right">
                                     <span class="MR50">奥迪中关村店</span>
                                     <span >2万</span>
                                 </a>
                             </li>
                             <li>
-                                <a href="discounts_detail.html" target="iframe_right">
+                                <a href="price_monitor.html" target="iframe_right">
                                     <span  class="MR50">奥迪中关村店</span>
                                     <span >2万</span>
                                 </a>
@@ -125,9 +127,12 @@
             </div>
 
             <div class="center_box two">
-                <div class="chart_btn">
+                <button class="btn back">
+                    返回
+                </button>
+<!--                <div class="chart_btn">
 
-                </div>
+                </div>-->
 
                 <div id="china_chart"></div>
             </div>
@@ -147,56 +152,6 @@
     </div>
     <div class="content_bottom">
         <p>看车型价格走势</p>
-        <!--<ul>
-            <li>
-                <form>
-                    <select name="cars">
-                        <option value="1" style="color: #8f8f8f" selected>选择品牌</option>
-                        <option value="saab">奥迪</option>
-                    </select>
-                </form>
-            </li>
-            <li>
-                <form>
-                    <select name="cars">
-                        <option value="1" style="color: #8f8f8f" selected>选择级别</option>
-                        <option value="saab">奥迪</option>
-                    </select>
-                </form>
-            </li>
-            <li>
-                <form>
-                    <select name="cars">
-                        <option value="1" style="color: #8f8f8f" selected>选择车系</option>
-                        <option value="saab">奥迪</option>
-                    </select>
-                </form>
-            </li>
-            <li>
-                <form>
-                    <select name="cars">
-                        <option value="1" style="color: #8f8f8f" selected>选择年贷款</option>
-                        <option value="saab">奥迪</option>
-                    </select>
-                </form>
-            </li>
-            <li>
-                <form>
-                    <select name="cars">
-                        <option value="1" style="color: #8f8f8f" selected>选择车型</option>
-                        <option value="saab">奥迪</option>
-                    </select>
-                </form>
-            </li>
-            <li>
-                <form>
-                    <select name="cars">
-                        <option value="1" style="color: #8f8f8f" selected>选择时间</option>
-                        <option value="saab">奥迪</option>
-                    </select>
-                </form>
-            </li>
-        </ul>-->
         <div class="date-select mb15 mr20 with120">
             <div class="select-show-box">
                 <span class="select-text">选择品牌</span>
@@ -536,7 +491,12 @@
                     </div>
                     <span class="border-text width60" style="border: none">条</span>
                     <span class="addBtn float-right">新增</span>
-
+                    <div class="modal-hint">
+                        <img src="../../img/dealer/hit-icon.png" alt="">
+                        <span class="hint-text">
+                                车型价格在预警线以下,表示不达标
+                            </span>
+                    </div>
                     <div class="warning-modal">
 
                     </div>
@@ -550,6 +510,26 @@
         </div><!-- /.modal -->
     </div>
     <!--预警设置模态框 end-->
+
+
+    <!--确认删除弹窗-->
+    <div class="modal-content del-content middle-width">
+        <div class="modal-header">
+            <!--<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>-->
+            <h4 class="modal-title text-center">确认删除</h4>
+        </div>
+        <div class="modal-body modal-body2">
+            <div class="alert-del">
+                <img src="../../img/dealer/del_alert.png" alt="">
+                <p class="alert-del-text">是否删除该条预警信息</p>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <span class="masketerBtn full-width cancel-btn" data-dismiss="modal" style="width: 102px">取消</span>
+            <span class="masketerBtn full-width sure" data-dismiss="modal" style="width: 102px">确定</span>
+        </div>
+    </div>
+    <!--确认删除弹窗-->
     <div class="footer">
         <p>Copyright 2015-2030 huishu All Rights Reserved. </p>
         <p>慧数汽车   版权所有</p>
@@ -803,7 +783,7 @@ $(function () {
     china_chart.on('mapSelected', function (param){
         var len = mapType.length;
         var mt = mapType[curIndx % len];
-        if (mt == 'china') {
+        if ($('.back').is(':hidden')) {
             // 全国选择时指定到选中的省份
             var selected = param.selected;
             for (var i in selected) {
@@ -818,16 +798,29 @@ $(function () {
                 }
             }
             option1.tooltip.formatter = '点击返回全国<br/>{b}';
+          option1.series[0].mapType = mt;
+          option1.title.subtext = mt + ' （点击切换）';
+          china_chart.setOption(option1, true);
+          $('.back').show();
         }
         else {
-            curIndx = 0;
+           /* curIndx = 0;
             mt = 'china';
-            option1.tooltip.formatter = '点击进入该省<br/>{b}';
+            option1.tooltip.formatter = '点击进入该省<br/>{b}';*/
+          window.location.href = 'price_monitor.html';
         }
-        option1.series[0].mapType = mt;
+       /* option1.series[0].mapType = mt;
         option1.title.subtext = mt + ' （点击切换）';
-        china_chart.setOption(option1, true);
+        china_chart.setOption(option1, true);*/
     });
+  $('.back').on('click',function () {
+    option1.tooltip.formatter = '点击进入该省<br/>{b}';
+    option1.series[0].mapType = 'china';
+    option1.title.subtext = 'china' + ' （点击切换）';
+    china_chart.setOption(option1, true);
+    $('.back').hide();
+
+  })
     var option1 = {
         title: {
             text : '全国34个省市自治区',
