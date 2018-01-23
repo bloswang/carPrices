@@ -797,9 +797,9 @@ $(function () {
                     break;
                 }
             }
-            option1.tooltip.formatter = '点击返回全国<br/>{b}';
+            option1.tooltip.formatter = '{b}万';
           option1.series[0].mapType = mt;
-          option1.title.subtext = mt + ' （点击切换）';
+          option1.title.subtext = mt;
           china_chart.setOption(option1, true);
           $('.back').show();
         }
@@ -814,9 +814,9 @@ $(function () {
         china_chart.setOption(option1, true);*/
     });
   $('.back').on('click',function () {
-    option1.tooltip.formatter = '点击进入该省<br/>{b}';
+    option1.tooltip.formatter = '{b}万';
     option1.series[0].mapType = 'china';
-    option1.title.subtext = 'china' + ' （点击切换）';
+    option1.title.subtext = 'china';
     china_chart.setOption(option1, true);
     $('.back').hide();
 
