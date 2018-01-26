@@ -9,6 +9,9 @@
     <link rel="stylesheet" href="../../css/public.css">
     <link rel="stylesheet" href="../../css/dealer.css">
     <link rel="stylesheet" href="../../assets/bootstrop_table/bootstrap-table.min.css">
+    <link rel="stylesheet" href="../../css/pager.css"/>
+
+
 
     <script src="../../assets/jQuery/jquery.min.js"></script>
     <script src="../../assets/bootstrap-3.3.7/js/bootstrap.min.js"></script>
@@ -16,6 +19,7 @@
     <script src="../../assets/bootstrop_table/bootstrap-table.min.js"></script>
     <script src="../../assets/echarts/echarts-all-3.js"></script>
     <script src="../../js/public.js"></script>
+    <script src="../../js/pager.js"></script>
     <script>
       $(function () {
         $('#table').bootstrapTable({
@@ -156,6 +160,16 @@
         $('#table ').on('click','tr.echart td',function () {
             $(this).parents('tr.echart').remove();
         })
+
+
+        Page({
+          num:70,					//页码数
+          startnum:1,				//指定页码
+          elem:$('#page'),		//指定的元素
+          callback:function(n){	//回调函数
+            console.log(n);
+          }
+        });
       });
 
       function createoption (dataX,dataObj) {
@@ -338,7 +352,18 @@
 
             </table>
         </div>
-        <div class="page-content"></div>
+        <div class="page-content">
+
+            <span class="grayText mr30">共50页</span>
+            <ul class="pagination" id="page">
+            </ul>
+            <div class="pageJump">
+                <span>跳转到</span>
+                <input  type="text"/>
+                <span>页</span>
+                <button type="button" class="button">确定</button>
+            </div>
+        </div>
 
     </div>
     <div class="footer">

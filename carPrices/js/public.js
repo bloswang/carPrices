@@ -19,6 +19,7 @@ $(function () {
     var val = $(this).html();
     $(this).parents('.select-hidden-box').hide();
     $(this).parents('.date-select').find('.select-text').html(val);
+    selectChange(val);
     if(val == '自定义'){
       //执行普通的下拉框操作
       $(this).parents('.date-select').find('.select-hidden-box2').show();
@@ -152,3 +153,7 @@ function returnItem () {
   return html;
 }
 
+/*selectd的change事件*/
+var selectChange = function (val) {
+  alert(val);
+}
